@@ -6,18 +6,17 @@
     Title="HomeView"
     BackgroundColor="#101214">
     <Grid Margin="25" RowDefinitions=".06*, .1*, .44*, .2*, .2*">
-        <Grid
-            Margin="0,0,15,0"
-      
-            ColumnDefinitions="*,*">
-
+        <!--#region Top Region-->
+        <Grid Margin="0,0,15,0" ColumnDefinitions="*,*">
             <Label
                 FontFamily="mnewslogo"
                 FontSize="20"
                 HorizontalOptions="Start"
                 Text="MNEWS"
                 TextColor="White"
+                TextDecorations="Underline"
                 VerticalOptions="Start" />
+
             <Image
                 Grid.Column="1"
                 HorizontalOptions="End"
@@ -28,11 +27,27 @@
                         Glyph="&#x0041;"
                         Size="27"
                         Color="White" />
-
                 </Image.Source>
             </Image>
+        </Grid>
+        <!--#endregion-->
+        <!--#region Featured Section-->
+        <Grid Grid.Row="2" RowDefinitions=".2*,.07*,.7*,.3*">
 
+            <Label
+                FontSize="18"
+                Text="Making the most of outdoor space for a beautiful and bounful vegetable"
+                Margin="0,0,0,0"
+                TextColor="White" />
+
+            <HorizontalStackLayout Grid.Row="1" VerticalOptions="Start" Margin="0,0,0,0" BackgroundColor="DarkSlateGray">
+                <Label Text="Nature Channel" FontSize="12"/>
+                <Label Text="." TextColor="White" FontSize="20"/>
+                <Label Text="30 mins ago" FontSize="12"/>
+            </HorizontalStackLayout>
 
         </Grid>
+        <!--#endregion-->
+
     </Grid>
 </ContentPage>
