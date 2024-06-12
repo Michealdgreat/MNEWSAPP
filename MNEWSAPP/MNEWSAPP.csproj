@@ -60,6 +60,7 @@
 	  <None Remove="Resources\Fonts\mnewsfontfamily.ttf" />
 	  <None Remove="Resources\Fonts\serifprobold.ttf" />
 	  <None Remove="Resources\Fonts\source-serif-pro.semibold.ttf" />
+	  <None Remove="Resources\Images\tropical.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>

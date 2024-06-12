@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="HomeView"
     BackgroundColor="#101214">
-    <Grid Margin="25" RowDefinitions=".06*, .1*, .44*, .2*, .2*">
+    <Grid Margin="25" RowDefinitions=".06*, .44*, .2*, .3*">
         <!--#region Top Region-->
         <Grid Margin="0,0,15,0" ColumnDefinitions="*,*">
             <Label
@@ -32,19 +32,64 @@
         </Grid>
         <!--#endregion-->
         <!--#region Featured Section-->
-        <Grid Grid.Row="2" RowDefinitions=".2*,.07*,.7*,.3*">
+        <Grid Grid.Row="1" RowDefinitions=".2*,.07*,.7*,.3*">
 
             <Label
+                Margin="0,0,0,0"
                 FontSize="18"
                 Text="Making the most of outdoor space for a beautiful and bounful vegetable"
-                Margin="0,0,0,0"
                 TextColor="White" />
 
-            <HorizontalStackLayout Grid.Row="1" VerticalOptions="Start" Margin="0,0,0,0" BackgroundColor="DarkSlateGray">
-                <Label Text="Nature Channel" FontSize="12"/>
-                <Label Text="." TextColor="White" FontSize="20"/>
-                <Label Text="30 mins ago" FontSize="12"/>
+            <HorizontalStackLayout
+                Grid.Row="1"
+                Margin="0,0,0,0"
+                BackgroundColor="DarkSlateGray"
+                VerticalOptions="Start">
+                <Label FontSize="12" Text="Nature Channel" />
+                <Label
+                    FontSize="12"
+                    Text=" | "
+                    TextColor="White" />
+                <Label FontSize="12" Text="30 mins ago" />
             </HorizontalStackLayout>
+
+            <Grid
+                Grid.Row="2"
+                Margin="0,0,0,0"
+                BackgroundColor="Black"
+                ColumnDefinitions=".65*, .35*"
+                RowDefinitions="5*, 5*">
+                <Frame
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="1"
+                    Margin="2"
+                    Padding="0"
+                    CornerRadius="8"
+                    IsClippedToBounds="True">
+                    <Image Aspect="AspectFill" Source="tropical.jpg" />
+                </Frame>
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="1"
+                    Padding="0"
+                    CornerRadius="8"
+                    IsClippedToBounds="True">
+                    <Image Aspect="AspectFill" Source="tropical.jpg" />
+                </Frame>
+                <Frame
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="1"
+                    Padding="0"
+                    BackgroundColor="AntiqueWhite"
+                    CornerRadius="8"
+                    HasShadow="True"
+                    IsClippedToBounds="True">
+                    <Image Aspect="AspectFill" Source="tropical.jpg" />
+                </Frame>
+            </Grid>
+
 
         </Grid>
         <!--#endregion-->
