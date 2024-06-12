@@ -65,6 +65,7 @@
                     Margin="2"
                     Padding="0"
                     CornerRadius="8"
+                    HasShadow="True"
                     IsClippedToBounds="True">
                     <Image Aspect="AspectFill" Source="tropical.jpg" />
                 </Frame>
@@ -74,6 +75,7 @@
                     Margin="1"
                     Padding="0"
                     CornerRadius="8"
+                    HasShadow="True"
                     IsClippedToBounds="True">
                     <Image Aspect="AspectFill" Source="tropical.jpg" />
                 </Frame>
@@ -89,6 +91,87 @@
                     <Image Aspect="AspectFill" Source="tropical.jpg" />
                 </Frame>
             </Grid>
+
+
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Popular Redactions-->
+
+        <Grid
+            Grid.Row="2"
+            RowDefinitions=".2*, .8*"
+            VerticalOptions="Start">
+
+            <Label
+                FontSize="Large"
+                Text="Popular Redactions"
+                TextColor="White" />
+
+            <HorizontalStackLayout Grid.Row="1" HorizontalOptions="CenterAndExpand">
+                <Frame
+                    Margin="10"
+                    Padding="0"
+                    CornerRadius="50"
+                    HeightRequest="50"
+                    IsClippedToBounds="True"
+                    WidthRequest="50">
+                    <ImageButton
+                        HeightRequest="100"
+                        Source="tropical"
+                        WidthRequest="100" />
+                </Frame>
+                <Frame
+                    Margin="10"
+                    Padding="0"
+                    CornerRadius="50"
+                    HeightRequest="50"
+                    IsClippedToBounds="True"
+                    WidthRequest="50">
+                    <ImageButton
+                        HeightRequest="100"
+                        Source="tropical"
+                        WidthRequest="100" />
+                </Frame>
+                <Frame
+                    Margin="10"
+                    Padding="0"
+                    CornerRadius="50"
+                    HeightRequest="50"
+                    IsClippedToBounds="True"
+                    WidthRequest="50">
+                    <ImageButton
+                        HeightRequest="100"
+                        Source="tropical"
+                        WidthRequest="100" />
+                </Frame>
+                <Frame
+                    Margin="10"
+                    Padding="0"
+                    CornerRadius="50"
+                    HeightRequest="50"
+                    IsClippedToBounds="True"
+                    WidthRequest="50">
+                    <ImageButton
+                        HeightRequest="100"
+                        Source="tropical"
+                        WidthRequest="100" />
+                </Frame>
+                <Frame
+                    Margin="10"
+                    Padding="0"
+                    CornerRadius="50"
+                    HeightRequest="50"
+                    IsClippedToBounds="True"
+                    WidthRequest="50">
+                    <ImageButton
+                        HeightRequest="100"
+                        Source="tropical"
+                        WidthRequest="100" />
+                </Frame>
+
+
+            </HorizontalStackLayout>
 
 
         </Grid>
