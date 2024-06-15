@@ -18,6 +18,7 @@ namespace MNEWSAPP
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("mnewsfontfamily.ttf", "mnewsicons");
                     fonts.AddFont("serifprobold.ttf", "mnewslogo");
+                    fonts.AddFont("POPPINS-BOLD.TTF", "headlinefont");
 
                 });
 
