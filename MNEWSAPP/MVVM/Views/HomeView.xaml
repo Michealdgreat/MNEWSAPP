@@ -4,178 +4,81 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="HomeView"
-    BackgroundColor="#101214">
-    <Grid Margin="25" RowDefinitions=".06*, .44*, .2*, .3*">
-        <!--#region Top Region-->
-        <Grid Margin="0,0,15,0" ColumnDefinitions="*,*">
-            <Label
-                FontFamily="mnewslogo"
-                FontSize="20"
-                HorizontalOptions="Start"
-                Text="MNEWS"
-                TextColor="White"
-                TextDecorations="Underline"
-                VerticalOptions="Start" />
+    BackgroundColor="#FFF">
+    <ScrollView>
+        <VerticalStackLayout Background="White">
+            <!--#region FEATURED SECTION-->
+            <Frame
+                Padding="10,5,10,5"
+                BackgroundColor="#F9F9F9"
+                BorderColor="#F9F9F9">
+                <Grid
+                    Margin="5"
+                    ColumnDefinitions=".7*,.3*"
+                    RowDefinitions=".2*, .1*, .4*, .4*, .1*"
+                    RowSpacing="7">
+                    <Label
+                        Grid.ColumnSpan="2"
+                        FontFamily="headlinefont"
+                        FontSize="Header"
+                        HorizontalOptions="Start"
+                        Text="Making the most of outdoor space or a beautiful and Bountiful Vegetable Garden"
+                        TextColor="#000"
+                        VerticalOptions="Start" />
+                    <HorizontalStackLayout
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        VerticalOptions="Start">
+                        <Label
+                            FontFamily="headlinefont"
+                            FontSize="Micro"
+                            Text="Nature Channel" />
+                        <Label
+                            FontFamily="headlinefont"
+                            FontSize="Micro"
+                            Text="-" />
+                        <Label
+                            FontFamily="headlinefont"
+                            FontSize="Micro"
+                            Text="6mins ago" />
+                    </HorizontalStackLayout>
+                    <Frame
+                        Grid.Row="2"
+                        Grid.RowSpan="2"
+                        Padding="0"
+                        IsClippedToBounds="True">
+                        <Image Aspect="Fill" Source="tropical.jpg" />
+                    </Frame>
+                    <Frame
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="2,0,0,0"
+                        Padding="0">
+                        <Image Aspect="Fill" Source="tropical" />
+                    </Frame>
 
-            <Image
-                Grid.Column="1"
-                HorizontalOptions="End"
-                VerticalOptions="Start">
-                <Image.Source>
-                    <FontImageSource
-                        FontFamily="mnewsicons"
-                        Glyph="&#x0041;"
-                        Size="27"
-                        Color="White" />
-                </Image.Source>
-            </Image>
-        </Grid>
-        <!--#endregion-->
-        <!--#region Featured Section-->
-        <Grid Grid.Row="1" RowDefinitions=".2*,.07*,.7*,.3*">
+                    <Frame
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Margin="2,0,0,0"
+                        Padding="0">
+                        <Image Aspect="Fill" Source="tropical" />
 
-            <Label
-                Margin="0,0,0,0"
-                FontSize="18"
-                Text="Making the most of outdoor space for a beautiful and bounful vegetable"
-                TextColor="White" />
+                    </Frame>
 
-            <HorizontalStackLayout
-                Grid.Row="1"
-                Margin="0,0,0,0"
-                BackgroundColor="DarkSlateGray"
-                VerticalOptions="Start">
-                <Label FontSize="12" Text="Nature Channel" />
-                <Label
-                    FontSize="12"
-                    Text=" | "
-                    TextColor="White" />
-                <Label FontSize="12" Text="30 mins ago" />
-            </HorizontalStackLayout>
+                    <Label
+                        Grid.Row="4"
+                        FontSize="Micro"
+                        Text="*00 201 122" />
+                </Grid>
 
-            <Grid
-                Grid.Row="2"
-                Margin="0,0,0,0"
-                BackgroundColor="Black"
-                ColumnDefinitions=".65*, .35*"
-                RowDefinitions="5*, 5*">
-                <Frame
-                    Grid.RowSpan="2"
-                    Grid.ColumnSpan="1"
-                    Margin="2"
-                    Padding="0"
-                    CornerRadius="8"
-                    HasShadow="True"
-                    IsClippedToBounds="True">
-                    <Image Aspect="AspectFill" Source="tropical.jpg" />
-                </Frame>
-                <Frame
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Margin="1"
-                    Padding="0"
-                    CornerRadius="8"
-                    HasShadow="True"
-                    IsClippedToBounds="True">
-                    <Image Aspect="AspectFill" Source="tropical.jpg" />
-                </Frame>
-                <Frame
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Margin="1"
-                    Padding="0"
-                    BackgroundColor="AntiqueWhite"
-                    CornerRadius="8"
-                    HasShadow="True"
-                    IsClippedToBounds="True">
-                    <Image Aspect="AspectFill" Source="tropical.jpg" />
-                </Frame>
-            </Grid>
+            </Frame>
+            <!--#endregion-->
+
+            <Label Text="Popular Redaction" />
+        </VerticalStackLayout>
 
 
-        </Grid>
-        <!--#endregion-->
+    </ScrollView>
 
-        <!--#region Popular Redactions-->
-
-        <Grid
-            Grid.Row="2"
-            RowDefinitions=".2*, .8*"
-            VerticalOptions="Start">
-
-            <Label
-                FontSize="Large"
-                Text="Popular Redactions"
-                TextColor="White" />
-
-            <HorizontalStackLayout Grid.Row="1" HorizontalOptions="CenterAndExpand">
-                <Frame
-                    Margin="10"
-                    Padding="0"
-                    CornerRadius="50"
-                    HeightRequest="50"
-                    IsClippedToBounds="True"
-                    WidthRequest="50">
-                    <ImageButton
-                        HeightRequest="100"
-                        Source="tropical"
-                        WidthRequest="100" />
-                </Frame>
-                <Frame
-                    Margin="10"
-                    Padding="0"
-                    CornerRadius="50"
-                    HeightRequest="50"
-                    IsClippedToBounds="True"
-                    WidthRequest="50">
-                    <ImageButton
-                        HeightRequest="100"
-                        Source="tropical"
-                        WidthRequest="100" />
-                </Frame>
-                <Frame
-                    Margin="10"
-                    Padding="0"
-                    CornerRadius="50"
-                    HeightRequest="50"
-                    IsClippedToBounds="True"
-                    WidthRequest="50">
-                    <ImageButton
-                        HeightRequest="100"
-                        Source="tropical"
-                        WidthRequest="100" />
-                </Frame>
-                <Frame
-                    Margin="10"
-                    Padding="0"
-                    CornerRadius="50"
-                    HeightRequest="50"
-                    IsClippedToBounds="True"
-                    WidthRequest="50">
-                    <ImageButton
-                        HeightRequest="100"
-                        Source="tropical"
-                        WidthRequest="100" />
-                </Frame>
-                <Frame
-                    Margin="10"
-                    Padding="0"
-                    CornerRadius="50"
-                    HeightRequest="50"
-                    IsClippedToBounds="True"
-                    WidthRequest="50">
-                    <ImageButton
-                        HeightRequest="100"
-                        Source="tropical"
-                        WidthRequest="100" />
-                </Frame>
-
-
-            </HorizontalStackLayout>
-
-
-        </Grid>
-        <!--#endregion-->
-
-    </Grid>
 </ContentPage>
