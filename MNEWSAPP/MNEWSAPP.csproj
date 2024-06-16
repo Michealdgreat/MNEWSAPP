@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks>net8.0-ios;net8.0-maccatalyst;net8.0-android34.0</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
@@ -36,6 +36,7 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<UserSecretsId>9fb1288f-f296-4f48-a059-836cc5c989b6</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -57,48 +58,71 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Fonts\mnewsfontfamily.ttf" />
-	  <None Remove="Resources\Fonts\POPPINS-BLACK.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-BLACKITALIC.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-BOLD.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-BOLDITALIC.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-EXTRABOLD.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-EXTRABOLDITALIC.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-EXTRALIGHT.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-EXTRALIGHTITALIC.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-ITALIC.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-LIGHT.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-LIGHTITALIC.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-MEDIUM.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-MEDIUMITALIC.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-REGULAR.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-SEMIBOLD.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-SEMIBOLDITALIC.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-THIN.TTF" />
-	  <None Remove="Resources\Fonts\POPPINS-THINITALIC.TTF" />
-	  <None Remove="Resources\Fonts\serifprobold.ttf" />
-	  <None Remove="Resources\Fonts\source-serif-pro.semibold.ttf" />
-	  <None Remove="Resources\Images\Microsoft.jpg" />
-	  <None Remove="Resources\Images\tropical.jpg" />
+		<None Remove="appsettings.json" />
+		<None Remove="Resources\Fonts\mnewsfontfamily.ttf" />
+		<None Remove="Resources\Fonts\MONTSERRAT-BLACK.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-BLACKITALIC.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-BOLD.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-BOLDITALIC.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-EXTRABOLD.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-EXTRABOLDITALIC.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-EXTRALIGHT.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-EXTRALIGHTITALIC.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-ITALIC.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-LIGHT.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-LIGHTITALIC.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-MEDIUM.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-MEDIUMITALIC.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-REGULAR.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-SEMIBOLD.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-SEMIBOLDITALIC.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-THIN.TTF" />
+		<None Remove="Resources\Fonts\MONTSERRAT-THINITALIC.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-BLACK.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-BLACKITALIC.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-BOLD.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-BOLDITALIC.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-EXTRABOLD.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-EXTRABOLDITALIC.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-EXTRALIGHT.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-EXTRALIGHTITALIC.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-ITALIC.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-LIGHT.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-LIGHTITALIC.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-MEDIUM.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-MEDIUMITALIC.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-REGULAR.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-SEMIBOLD.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-SEMIBOLDITALIC.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-THIN.TTF" />
+		<None Remove="Resources\Fonts\POPPINS-THINITALIC.TTF" />
+		<None Remove="Resources\Fonts\serifprobold.ttf" />
+		<None Remove="Resources\Fonts\source-serif-pro.semibold.ttf" />
+		<None Remove="Resources\Images\Microsoft.jpg" />
+		<None Remove="Resources\Images\tropical.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.1" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.60" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.60" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0-preview.5.24306.7" />
+		<PackageReference Include="System.Text.Json" Version="9.0.0-preview.5.24306.7" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="MVVM\Models\" />
-	  <Folder Include="MVVM\ViewModels\" />
-	  <Folder Include="Service\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="MVVM\Views\HomeView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+		<MauiXaml Update="MVVM\Views\HomeView.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 	</ItemGroup>
 
 </Project>
