@@ -3,82 +3,76 @@
     x:Class="MNEWSAPP.MVVM.Views.HomeView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MNEWSAPP.MVVM.ViewModels"
     Title="HomeView"
     BackgroundColor="#FFF">
+
     <ScrollView>
-        <VerticalStackLayout Background="White">
-            <!--#region FEATURED SECTION-->
-            <Frame
-                Padding="10,5,10,5"
-                BackgroundColor="#F9F9F9"
-                BorderColor="#F9F9F9">
-                <Grid
-                    Margin="5"
-                    ColumnDefinitions=".7*,.3*"
-                    RowDefinitions=".2*, .1*, .4*, .4*, .1*"
-                    RowSpacing="7">
-                    <Label
-                        Grid.ColumnSpan="2"
-                        FontFamily="headlinefont"
-                        FontSize="Header"
-                        HorizontalOptions="Start"
-                        Text="Making the most of outdoor space or a beautiful and Bountiful Vegetable Garden"
-                        TextColor="#000"
-                        VerticalOptions="Start" />
-                    <HorizontalStackLayout
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        VerticalOptions="Start">
+        <VerticalStackLayout Background="#FDF3EC" Padding="15">
+            <!--#region Home Banner-->
+            <Frame Padding="30" Background="#A4634D" CornerRadius="20" BorderColor="#A4634D">
+                <Grid ColumnDefinitions=".7*,.3*">
+                    <VerticalStackLayout Spacing="15">
                         <Label
-                            FontFamily="headlinefont"
-                            FontSize="Micro"
-                            Text="Nature Channel" />
-                        <Label
-                            FontFamily="headlinefont"
-                            FontSize="Micro"
-                            Text="-" />
-                        <Label
-                            FontFamily="headlinefont"
-                            FontSize="Micro"
-                            Text="6mins ago" />
-                    </HorizontalStackLayout>
-                    <Frame
-                        Grid.Row="2"
-                        Grid.RowSpan="2"
-                        Padding="0"
-                        IsClippedToBounds="True">
-                        <Image Aspect="Fill" Source="tropical.jpg" />
-                    </Frame>
-                    <Frame
-                        Grid.Row="2"
-                        Grid.Column="1"
-                        Margin="2,0,0,0"
-                        Padding="0">
-                        <Image Aspect="Fill" Source="tropical" />
-                    </Frame>
-
-                    <Frame
-                        Grid.Row="3"
-                        Grid.Column="1"
-                        Margin="2,0,0,0"
-                        Padding="0">
-                        <Image Aspect="Fill" Source="tropical" />
-
-                    </Frame>
-
-                    <Label
-                        Grid.Row="4"
-                        FontSize="Micro"
-                        Text="*00 201 122" />
+                            FontFamily="mnewsbold"
+                            FontSize="Medium"
+                            Text="Learn how to become a great writer now!"
+                            TextColor="#FDF3EC"
+                            VerticalOptions="Start" 
+                            />
+                        <Button
+                            Padding="5"
+                            FontSize="Default"
+                            HeightRequest="30"
+                            HorizontalOptions="Start"
+                            Text="Read More"
+                            TextColor="#A4634D"
+                            FontAttributes="Bold"
+                            BackgroundColor="#FDF3EC"
+                            VerticalOptions="Start"
+                            WidthRequest="100" />
+                    </VerticalStackLayout>
+                    <Image Grid.Column="1"
+                           Source="tropical" Margin="-30"/>
                 </Grid>
-
             </Frame>
-            <!--#endregion-->
 
-            <Label Text="Popular Redaction" />
+            <Label Text="Recent Articles" FontFamily="mnewsbold" FontSize="Large" Padding="15"/>
+
+            <!--#region-->
+
+            <CollectionView ItemsSource="{Binding News}" >
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="True"
+                               BorderColor="DarkGray"
+                               CornerRadius="5"
+                               Margin="10"
+                               
+                               HeightRequest="300"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand">
+                            <StackLayout>
+                                <Label Text="{Binding Title}"
+                                       FontAttributes="Bold"
+                                       FontSize="18"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" 
+                                      TextColor="Black"/>
+
+                                <Label Text="Description for item"
+                                       HorizontalOptions="Center" />
+                                <Label Text="Details for item"
+                                       FontAttributes="Italic"
+                                       HorizontalOptions="Center"
+                                       MaxLines="5"
+                                       LineBreakMode="TailTruncation" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
-
-
     </ScrollView>
-
 </ContentPage>

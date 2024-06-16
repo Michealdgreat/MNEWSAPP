@@ -1,9 +1,19 @@
-namespace MNEWSAPP.MVVM.Views;
+using MNEWSAPP.MVVM.ViewModels;
 
-public partial class HomeView : ContentPage
+namespace MNEWSAPP.MVVM.Views
 {
-	public HomeView()
-	{
-		InitializeComponent();
-	}
+    public partial class HomeView : ContentPage
+    {
+        public HomeView()
+        {
+            InitializeComponent();
+            BindingContext = App.Services.GetRequiredService<HomeViewModel>();
+
+            // Automatically trigger the load command when the view is initialized
+            if (BindingContext is HomeViewModel viewModel)
+            {
+                viewModel.LoadCommand.Execute(null);
+            }
+        }
+    }
 }
