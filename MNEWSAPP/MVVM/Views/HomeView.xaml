@@ -21,6 +21,7 @@
                             VerticalOptions="Start" 
                             />
                         <Button
+                            Command="{Binding GetAllUsersCommand}"
                             Padding="5"
                             FontSize="Default"
                             HeightRequest="30"

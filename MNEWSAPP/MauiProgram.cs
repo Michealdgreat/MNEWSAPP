@@ -4,11 +4,7 @@ using Microsoft.Extensions.Configuration;
 using MNEWSAPP.MVVM.ViewModels;
 using MNEWSAPP.Service;
 using System.Reflection;
-
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using MNEWSAPP.MVVM.ViewModels;
-using MNEWSAPP.Service;
+using MNEWSAPP.MVVM.Views;
 
 namespace MNEWSAPP
 {
@@ -38,16 +34,21 @@ namespace MNEWSAPP
                     fonts.AddFont("MONTSERRAT-BOLD.TTF", "mnewsbold");
                 });
 
-            // Register services
+            // Register services and view models with DI
+            builder.Services.AddSingleton(configuration); // Add configuration to the DI container
             builder.Services.AddSingleton<HomeViewModel>();
             builder.Services.AddSingleton<GetNews>();
+            builder.Services.AddTransient<HomeView>(); // Register HomeView as a transient service
 
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
 
-            return builder.Build();
+            // Create the service provider
+            var app = builder.Build();
+
+            // Pass the service provider to the App constructor
+            return app;
         }
     }
 }
-
