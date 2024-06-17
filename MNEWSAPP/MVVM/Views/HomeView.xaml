@@ -8,9 +8,13 @@
     BackgroundColor="#FFF">
 
     <ScrollView>
-        <VerticalStackLayout Background="#FDF3EC" Padding="15">
+        <VerticalStackLayout Padding="15" Background="#FDF3EC">
             <!--#region Home Banner-->
-            <Frame Padding="30" Background="#A4634D" CornerRadius="20" BorderColor="#A4634D">
+            <Frame
+                Padding="30"
+                Background="#A4634D"
+                BorderColor="#A4634D"
+                CornerRadius="20">
                 <Grid ColumnDefinitions=".7*,.3*">
                     <VerticalStackLayout Spacing="15">
                         <Label
@@ -18,27 +22,32 @@
                             FontSize="Medium"
                             Text="Learn how to become a great writer now!"
                             TextColor="#FDF3EC"
-                            VerticalOptions="Start" 
-                            />
+                            VerticalOptions="Start" />
                         <Button
-                            Command="{Binding GetAllUsersCommand}"
                             Padding="5"
+                            BackgroundColor="#FDF3EC"
+                            Command="{Binding GetAllUsersCommand}"
+                            FontAttributes="Bold"
                             FontSize="Default"
                             HeightRequest="30"
                             HorizontalOptions="Start"
                             Text="Read More"
                             TextColor="#A4634D"
-                            FontAttributes="Bold"
-                            BackgroundColor="#FDF3EC"
                             VerticalOptions="Start"
                             WidthRequest="100" />
                     </VerticalStackLayout>
-                    <Image Grid.Column="1"
-                           Source="tropical" Margin="-30"/>
+                    <Image
+                        Grid.Column="1"
+                        Margin="-30"
+                        Source="tropical" />
                 </Grid>
             </Frame>
 
-            <Label Text="Recent Articles" FontFamily="mnewsbold" FontSize="Large" Padding="15"/>
+            <Label
+                Padding="15"
+                FontFamily="mnewsbold"
+                FontSize="Large"
+                Text="Recent Articles" />
 
             <!--#region-->
 
@@ -46,29 +55,34 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame HasShadow="True"
-                               BorderColor="DarkGray"
-                               CornerRadius="5"
-                               Margin="10"
-                               
-                               HeightRequest="300"
-                               HorizontalOptions="Center"
-                               VerticalOptions="CenterAndExpand">
+                        <Frame
+                            Margin="10"
+                            BorderColor="DarkGray"
+                            CornerRadius="5"
+                            HasShadow="True"
+                            Opacity="20"
+                            HeightRequest="300"
+                            BackgroundColor="#39393c"
+                            HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand">
                             <StackLayout>
-                                <Label Text="{Binding Title}"
-                                       FontAttributes="Bold"
-                                       FontSize="18"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center" 
-                                      TextColor="Black"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding Title}"
+                                    TextColor="white"
+                                    VerticalOptions="Center" />
 
-                                <Label Text="Description for item"
-                                       HorizontalOptions="Center" />
-                                <Label Text="Details for item"
-                                       FontAttributes="Italic"
-                                       HorizontalOptions="Center"
-                                       MaxLines="5"
-                                       LineBreakMode="TailTruncation" />
+                                <Label HorizontalOptions="Center" Text="Description for item" />
+                                <Label
+                                    FontAttributes="Italic"
+                                    HorizontalOptions="Center"
+                                    LineBreakMode="TailTruncation"
+                                    MaxLines="5"
+                                    Text="Details for item" />
+
+                                <Image Source="{Binding UrlToImage}" />
                             </StackLayout>
                         </Frame>
                     </DataTemplate>

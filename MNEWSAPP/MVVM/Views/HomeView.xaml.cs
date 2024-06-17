@@ -1,20 +1,21 @@
-using Microsoft.Extensions.Configuration;
 using MNEWSAPP.MVVM.ViewModels;
 
 namespace MNEWSAPP.MVVM.Views
 {
     public partial class HomeView : ContentPage
     {
-        public HomeView(HomeViewModel viewModel)
+        private readonly HomeViewModel _viewModel;
+
+        public HomeView(HomeViewModel homeViewModel)
         {
             InitializeComponent();
-            BindingContext = viewModel;
+            BindingContext = _viewModel = homeViewModel;
+        }
 
-            // Automatically trigger the load command when the view is initialized
-            //if (BindingContext is HomeViewModel viewModel)
-            //{
-            //    viewModel.LoadCommand.Execute(null);
-            //}
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await _viewModel.GetNews();
         }
     }
 }
