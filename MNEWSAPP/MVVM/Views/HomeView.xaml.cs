@@ -4,18 +4,19 @@ namespace MNEWSAPP.MVVM.Views
 {
     public partial class HomeView : ContentPage
     {
-        private readonly HomeViewModel _viewModel;
+        private HomeViewModel homeViewModel;
 
-        public HomeView(HomeViewModel homeViewModel)
+        public HomeView()
         {
             InitializeComponent();
-            BindingContext = _viewModel = homeViewModel;
+            homeViewModel = new HomeViewModel();
+            BindingContext = homeViewModel;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await _viewModel.GetNews();
+            await homeViewModel.GetNews();
         }
     }
 }
