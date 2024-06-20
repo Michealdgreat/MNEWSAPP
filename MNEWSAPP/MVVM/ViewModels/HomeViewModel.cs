@@ -15,10 +15,15 @@ namespace MNEWSAPP.MVVM.ViewModels
         [ObservableProperty]
         private ObservableCollection<ArticleModel>? news;
 
+
+
         public HomeViewModel()
         {
+
             _httpClient = new HttpClient();
             News = new ObservableCollection<ArticleModel>();
+            //News.CollectionChanged += (s, e) => OnPropertyChanged(nameof(TakeThree));
+
         }
 
         public async Task GetNews()
@@ -58,6 +63,14 @@ namespace MNEWSAPP.MVVM.ViewModels
                 });
             }
         }
+
+        //public ObservableCollection<ArticleModel> TakeThree
+        //{
+        //    get
+        //    {
+        //        return new ObservableCollection<ArticleModel>(News?.Take(3) ?? Enumerable.Empty<ArticleModel>());
+        //    }
+        //}
 
         private async Task SetApiKeyAsync(string apiKeyValue)
         {

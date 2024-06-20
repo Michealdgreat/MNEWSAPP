@@ -5,6 +5,7 @@ using MNEWSAPP.MVVM.ViewModels;
 using MNEWSAPP.Service;
 using System.Reflection;
 using MNEWSAPP.MVVM.Views;
+using PanCardView;
 
 namespace MNEWSAPP
 {
@@ -25,6 +26,7 @@ namespace MNEWSAPP
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
+                .UseCardsView()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

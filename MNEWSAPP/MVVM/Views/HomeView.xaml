@@ -3,6 +3,8 @@
     x:Class="MNEWSAPP.MVVM.Views.HomeView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+    xmlns:proc="clr-namespace:PanCardView.Processors;assembly=PanCardView"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="HomeView"
     BackgroundColor="#FFF">
@@ -42,20 +44,65 @@
             </Frame>
 
             <Label
-                Padding="15"
+                Margin="0,20,0,-5"
                 FontFamily="mnewsbold"
                 FontSize="Large"
                 Text="Recent Articles" />
+
+            <cards:CoverFlowView
+                Margin="-25,0,0,0"
+                IsAutoNavigatingAnimationEnabled="True"
+                ItemsSource="{Binding News}"
+                MaxChildrenCount="3"
+                PositionShiftValue="190">
+                <x:Arguments>
+                    <proc:CoverFlowProcessor OpacityFactor="0.35" />
+                </x:Arguments>
+
+                <cards:CoverFlowView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            BackgroundColor="#FDF3EC"
+                            BorderColor="#FDF3EC"
+                            CornerRadius="5"
+                            HorizontalOptions="Start"
+                            WidthRequest="240">
+                            <StackLayout>
+                                <Frame Padding="0" HeightRequest="150">
+                                    <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
+                                </Frame>
+                                <Label
+                                    Margin="0,10,0,0"
+                                    FontAttributes="Bold"
+                                    FontSize="Caption"
+                                    HorizontalOptions="Center"
+                                    LineBreakMode="TailTruncation"
+                                    MaxLines="2"
+                                    Text="{Binding Title}"
+                                    TextColor="#39393c"
+                                    VerticalOptions="Center" />
+
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </cards:CoverFlowView.ItemTemplate>
+            </cards:CoverFlowView>
+            <Label
+                Margin="0,0,0,-20"
+                Padding="15"
+                FontFamily="mnewsbold"
+                FontSize="Large"
+                Text="All News" />
 
             <!--  CollectionView  -->
 
             <!--<CollectionView ItemsSource="{Binding News}" >-->
             <!--<CollectionView.ItemTemplate>-->
+
             <toolkit:UniformItemsLayout
                 Margin="0,10,0,50"
                 BindableLayout.ItemsSource="{Binding News}"
-                MaxColumns="2"
-                >
+                MaxColumns="2">
                 <BindableLayout.ItemTemplate>
 
 
@@ -63,38 +110,57 @@
 
                         <Frame
                             Padding="10"
-                            BackgroundColor="#39393c"
-                            BorderColor="white"
+                            BackgroundColor="#FDF3EC"
+                            BorderColor="#FDF3EC"
                             CornerRadius="5"
-                            HasShadow="True"
                             HeightRequest="250"
                             HorizontalOptions="Center"
                             VerticalOptions="CenterAndExpand"
                             WidthRequest="180">
                             <StackLayout>
+                                <Frame Padding="0" HeightRequest="150">
+                                    <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
+                                </Frame>
                                 <Label
+                                    Margin="0,10,0,0"
                                     FontAttributes="Bold"
                                     FontSize="Body"
                                     HorizontalOptions="Center"
-                                    Text="{Binding Title}"
                                     LineBreakMode="TailTruncation"
-                                    TextColor="White"
-                                    VerticalOptions="Center" 
-                                    MaxLines="2"/>
-                                <Image
+                                    MaxLines="2"
+                                    Text="{Binding Title}"
+                                    TextColor="#39393c"
+                                    VerticalOptions="Center" />
+                                <!--<Image
                                     Aspect="AspectFill"
                                     HeightRequest="100"
                                     HorizontalOptions="Center"
                                     Source="{Binding UrlToImage}"
-                                    WidthRequest="100" />
-                                <Label
+                                    WidthRequest="100" />-->
+                                <!--<Label
                                     HorizontalOptions="Center"
                                     LineBreakMode="TailTruncation"
                                     MaxLines="2"
-                                    Text="{Binding Description}" 
-                                    TextColor="White"/>
-                                <Button Text="Read News" WidthRequest="120"
-                                        HeightRequest="30" FontSize="Caption" Margin="0,10,0,0" Padding="1"/>
+                                    Text="{Binding Description}"
+                                    TextColor="#39393c"/>-->
+                                <HorizontalStackLayout Margin="0,10,0,0">
+                                    <Frame
+                                        Padding="0"
+                                        HeightRequest="10"
+                                        WidthRequest="10">
+                                        <Image Aspect="AspectFill" Source="tropical" />
+                                    </Frame>
+                                    <Label Text="  " />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="Micro"
+                                        Text="{Binding Author}"
+                                        TextColor="#A4634D"
+                                        TextDecorations="Underline" />
+                                    <Label Text="  " />
+                                    <!--<Label Text="{Binding PublishedAt}" FontSize="Micro"/>-->
+                                </HorizontalStackLayout>
+
                             </StackLayout>
                         </Frame>
 
@@ -102,6 +168,7 @@
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </toolkit:UniformItemsLayout>
+
 
             <!--</CollectionView.ItemTemplate>
             </CollectionView>-->
