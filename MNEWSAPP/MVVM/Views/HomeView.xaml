@@ -3,13 +3,12 @@
     x:Class="MNEWSAPP.MVVM.Views.HomeView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:MNEWSAPP.MVVM.ViewModels"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="HomeView"
     BackgroundColor="#FFF">
-
     <ScrollView>
         <VerticalStackLayout Padding="15" Background="#FDF3EC">
-            <!--#region Home Banner-->
+            <!--  Home Banner  -->
             <Frame
                 Padding="30"
                 Background="#A4634D"
@@ -26,7 +25,6 @@
                         <Button
                             Padding="5"
                             BackgroundColor="#FDF3EC"
-                            Command="{Binding GetAllUsersCommand}"
                             FontAttributes="Bold"
                             FontSize="Default"
                             HeightRequest="30"
@@ -39,7 +37,7 @@
                     <Image
                         Grid.Column="1"
                         Margin="-30"
-                        Source="tropical" />
+                        Source="tropical.jpg" />
                 </Grid>
             </Frame>
 
@@ -49,47 +47,67 @@
                 FontSize="Large"
                 Text="Recent Articles" />
 
-            <!--#region-->
+            <!--  CollectionView  -->
 
-            <CollectionView ItemsSource="{Binding News}" >
+            <!--<CollectionView ItemsSource="{Binding News}" >-->
+            <!--<CollectionView.ItemTemplate>-->
+            <toolkit:UniformItemsLayout
+                Margin="0,10,0,50"
+                BindableLayout.ItemsSource="{Binding News}"
+                MaxColumns="2"
+                >
+                <BindableLayout.ItemTemplate>
 
-                <CollectionView.ItemTemplate>
+
                     <DataTemplate>
+
                         <Frame
-                            Margin="10"
-                            BorderColor="DarkGray"
+                            Padding="10"
+                            BackgroundColor="#39393c"
+                            BorderColor="white"
                             CornerRadius="5"
                             HasShadow="True"
-                            Opacity="20"
-                            FlowDirection="LeftToRight"
-                            HeightRequest="300"
-                            BackgroundColor="#39393c"
+                            HeightRequest="250"
                             HorizontalOptions="Center"
-                            VerticalOptions="CenterAndExpand">
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="180">
                             <StackLayout>
                                 <Label
                                     FontAttributes="Bold"
-                                    FontSize="18"
+                                    FontSize="Body"
                                     HorizontalOptions="Center"
                                     Text="{Binding Title}"
-                                    TextColor="white"
-                                    VerticalOptions="Center" />
-
-                                <Label HorizontalOptions="Center" Text="Description for item" />
+                                    LineBreakMode="TailTruncation"
+                                    TextColor="White"
+                                    VerticalOptions="Center" 
+                                    MaxLines="2"/>
+                                <Image
+                                    Aspect="AspectFill"
+                                    HeightRequest="100"
+                                    HorizontalOptions="Center"
+                                    Source="{Binding UrlToImage}"
+                                    WidthRequest="100" />
                                 <Label
-                                    FontAttributes="Italic"
                                     HorizontalOptions="Center"
                                     LineBreakMode="TailTruncation"
-                                    MaxLines="5"
-                                    Text="Details for item" />
-
-                                <!--<Image Source="{Binding UrlToImage}"/>-->
-                                <Image Source="tropical"/>
+                                    MaxLines="2"
+                                    Text="{Binding Description}" 
+                                    TextColor="White"/>
+                                <Button Text="Read News" WidthRequest="120"
+                                        HeightRequest="30" FontSize="Caption" Margin="0,10,0,0" Padding="1"/>
                             </StackLayout>
                         </Frame>
+
+
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                </BindableLayout.ItemTemplate>
+            </toolkit:UniformItemsLayout>
+
+            <!--</CollectionView.ItemTemplate>
+            </CollectionView>-->
+
+
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

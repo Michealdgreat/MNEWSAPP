@@ -15,12 +15,12 @@ namespace MNEWSAPP
             var builder = MauiApp.CreateBuilder();
 
             // Load the configuration
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(AppContext.BaseDirectory)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .Build();
+            //var configuration = new ConfigurationBuilder()
+            //    .SetBasePath(AppContext.BaseDirectory)
+            //    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            //    .Build();
 
-            builder.Configuration.AddConfiguration(configuration);
+            //builder.Configuration.AddConfiguration(configuration);
 
             builder
                 .UseMauiApp<App>()
@@ -35,7 +35,7 @@ namespace MNEWSAPP
                 });
 
             // Register services and view models with DI
-            builder.Services.AddSingleton(configuration); // Add configuration to the DI container
+            //builder.Services.AddSingleton(configuration); // Add configuration to the DI container
             builder.Services.AddSingleton<HomeViewModel>();
             builder.Services.AddSingleton<GetNews>();
             builder.Services.AddTransient<HomeView>(); // Register HomeView as a transient service
