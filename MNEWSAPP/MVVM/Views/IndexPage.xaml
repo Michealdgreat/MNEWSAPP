@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MNEWSAPP.MVVM.Views.IndexPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="IndexPage">
+    <ScrollView>
+        <VerticalStackLayout>
+            <!--  Top Three News Section  -->
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding TopThreeNews}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Margin="10"
+                            BackgroundColor="#F9F9F9"
+                            BorderColor="#F9F9F9"
+                            CornerRadius="10">
+                            <StackLayout Orientation="Vertical" Spacing="5">
+                                <Label
+                                    FontFamily="mnewsbold"
+                                    FontSize="Body"
+                                    Text="{Binding Title}" />
+                                <HorizontalStackLayout>
+                                    <Label
+                                        FontSize="Small"
+                                        Text="{Binding Author}"
+                                        TextColor="Black" />
+                                    <Label Text="    " />
+                                    <Label Text="{Binding PublishedAt}" />
+                                </HorizontalStackLayout>
+                                <Grid
+                                    ColumnDefinitions=".6*,.4*"
+                                    ColumnSpacing="8"
+                                    RowDefinitions=".5*,.5*"
+                                    RowSpacing="8">
+                                    <Frame
+                                        Grid.RowSpan="2"
+                                        Padding="0"
+                                        HeightRequest="250">
+                                        <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
+                                    </Frame>
+                                    <Frame Grid.Column="1" Padding="0">
+                                        <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
+                                    </Frame>
+                                    <Frame
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Padding="0">
+                                        <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
+                                    </Frame>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <!--  Popular Redactions Section  -->
+            <VerticalStackLayout>
+                <Label
+                    Margin="10"
+                    FontFamily="mnewsbold"
+                    FontSize="Medium"
+                    Text="Popular Redactions" />
+                <CollectionView
+                    HorizontalScrollBarVisibility="Never"
+                    ItemsLayout="HorizontalList"
+                    ItemsSource="{Binding News}"
+                    VerticalScrollBarVisibility="Never">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Margin="10,0,20,0"
+                                Padding="20"
+                                CornerRadius="50"
+                                FlowDirection="LeftToRight"
+                                HasShadow="True"
+                                HeightRequest="50"
+                                Opacity="100"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFill"
+                                    HeightRequest="50"
+                                    Source="{Binding UrlToImage}"
+                                    WidthRequest="50" />
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+            <Label
+                Margin="0,20,0,0"
+                Padding="10"
+                FontFamily="mnewsbold"
+                FontSize="Medium"
+                Text="Browse By" />
+            <HorizontalStackLayout Margin="25,0,0,0" Spacing="25">
+                <Label
+                    FontFamily="mnewsbold"
+                    FontSize="Caption"
+                    Text="Trending"
+                    TextColor="Black" />
+                <Label
+                    FontFamily="mnewsbold"
+                    FontSize="Caption"
+                    Text="Recommendation"
+                    TextColor="LightGray" />
+                <Label
+                    FontFamily="mnewsbold"
+                    FontSize="Caption"
+                    Text="Newest"
+                    TextColor="LightGray" />
+                <Label
+                    FontFamily="mnewsbold"
+                    FontSize="Caption"
+                    Text="Videos"
+                    TextColor="LightGray" />
+            </HorizontalStackLayout>
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding SelectFive}" Padding="15" Spacing="10">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions=".8*,.2*" RowDefinitions="1*">
+                            <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Small" />
+                            <Frame Grid.Column="1" Padding="0" CornerRadius="7">
+                                <Image  Source="{Binding UrlToImage}" Aspect="AspectFill"/>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

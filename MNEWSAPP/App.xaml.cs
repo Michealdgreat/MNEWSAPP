@@ -12,8 +12,10 @@ namespace MNEWSAPP
             InitializeComponent();
 
             // Resolve HomeView from the service provider
-            var homeView = serviceProvider.GetRequiredService<HomeView>();
-            MainPage = new NavigationPage(homeView);
+            //var homeView = serviceProvider.GetRequiredService<HomeView>();
+            //MainPage = new NavigationPage(homeView);
+
+            MainPage = new IndexPage();
         }
     }
 }
