@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MNEWSAPP.MVVM.Views.InterestView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="InterestView"
+    Padding="20">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label
+                Margin="0,40,0,0"
+                CharacterSpacing="2"
+                FontFamily="poppinsblack"
+                FontSize="Title"
+                HorizontalOptions="Center"
+                Text="Pick your interests" />
+            <Label
+                Margin="20,10,0,0"
+                FontFamily="poppinssemibold"
+                FontSize="Default"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="We’ll use this info to personalize your feed to recommend things you’ll like." />
+
+
+            <!--#region INTERESTS-->
+            <toolkit:UniformItemsLayout Margin="0,10,0,0" MaxColumns="2">
+
+                <!--#region Frame 1-->
+                <Frame
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    CornerRadius="10"
+                    HeightRequest="100"
+                    WidthRequest="170">
+                    <Grid>
+                        <Frame
+                            Padding="0"
+                            BorderColor="White"
+                            CornerRadius="10">
+                            <Image Aspect="AspectFill" Source="football" />
+                        </Frame>
+
+                        <BoxView
+                            BackgroundColor="Black"
+                            CornerRadius="10"
+                            HeightRequest="100"
+                            HorizontalOptions="FillAndExpand"
+                            Opacity="0.1"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="170" />
+
+                        <RadioButton
+                            BorderColor="White"
+                            HorizontalOptions="End"
+                            TextColor="Yellow" />
+
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Frame 1-->
+                <Frame
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    CornerRadius="10"
+                    HeightRequest="100"
+                    WidthRequest="170">
+                    <Grid>
+                        <Frame
+                            Padding="0"
+                            BorderColor="White"
+                            CornerRadius="10">
+                            <Image Aspect="AspectFill" Source="canoe" />
+                        </Frame>
+
+                        <BoxView
+                            BackgroundColor="Black"
+                            CornerRadius="10"
+                            HeightRequest="99"
+                            HorizontalOptions="FillAndExpand"
+                            Opacity="0.1"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="157" />
+
+                        <RadioButton
+                            BorderColor="White"
+                            HorizontalOptions="End"
+                            TextColor="Yellow" />
+
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Frame 1-->
+                <Frame
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    CornerRadius="10"
+                    HeightRequest="100"
+                    WidthRequest="170">
+                    <Grid>
+                        <Frame
+                            Padding="0"
+                            BorderColor="White"
+                            CornerRadius="10">
+                            <Image Aspect="AspectFill" Source="houseinvillage" />
+                        </Frame>
+
+                        <BoxView
+                            BackgroundColor="Black"
+                            CornerRadius="10"
+                            HeightRequest="99"
+                            HorizontalOptions="FillAndExpand"
+                            Opacity="0.1"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="157" />
+
+                        <RadioButton
+                            BorderColor="White"
+                            HorizontalOptions="End"
+                            TextColor="Yellow" />
+
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Frame 1-->
+                <Frame
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    CornerRadius="10"
+                    HeightRequest="100"
+                    WidthRequest="170">
+                    <Grid>
+                        <Frame
+                            Padding="0"
+                            BorderColor="White"
+                            CornerRadius="10">
+                            <Image Aspect="AspectFill" Source="pexel1" />
+                        </Frame>
+
+                        <BoxView
+                            BackgroundColor="Black"
+                            CornerRadius="10"
+                            HeightRequest="99"
+                            HorizontalOptions="FillAndExpand"
+                            Opacity="0.1"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="157" />
+
+                        <RadioButton
+                            BorderColor="White"
+                            HorizontalOptions="End"
+                            TextColor="Yellow" />
+
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Frame 1-->
+                <Frame
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    CornerRadius="10"
+                    HeightRequest="100"
+                    WidthRequest="170">
+                    <Grid>
+                        <Frame
+                            Padding="0"
+                            BorderColor="White"
+                            CornerRadius="10">
+                            <Image Aspect="AspectFill" Source="pexel2" />
+                        </Frame>
+
+                        <BoxView
+                            BackgroundColor="Black"
+                            CornerRadius="10"
+                            HeightRequest="99"
+                            HorizontalOptions="FillAndExpand"
+                            Opacity="0.1"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="157" />
+
+                        <RadioButton
+                            BorderColor="White"
+                            HorizontalOptions="End"
+                            TextColor="Yellow" />
+
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Frame 1-->
+                <Frame
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    CornerRadius="10"
+                    HeightRequest="100"
+                    WidthRequest="170">
+                    <Grid>
+                        <Frame
+                            Padding="0"
+                            BorderColor="White"
+                            CornerRadius="10">
+                            <Image Aspect="AspectFill" Source="pexel3" />
+                        </Frame>
+
+                        <BoxView
+                            BackgroundColor="Black"
+                            CornerRadius="10"
+                            HeightRequest="99"
+                            HorizontalOptions="FillAndExpand"
+                            Opacity="0.1"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="157" />
+
+                        <RadioButton
+                            BorderColor="White"
+                            HorizontalOptions="End"
+                            TextColor="Yellow" />
+
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Frame 1-->
+                <Frame
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    CornerRadius="10"
+                    HeightRequest="100"
+                    WidthRequest="170">
+                    <Grid>
+                        <Frame
+                            Padding="0"
+                            BorderColor="White"
+                            CornerRadius="10">
+                            <Image Aspect="AspectFill" Source="rockyhills" />
+                        </Frame>
+
+                        <BoxView
+                            BackgroundColor="Black"
+                            CornerRadius="10"
+                            HeightRequest="99"
+                            HorizontalOptions="FillAndExpand"
+                            Opacity="0.1"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="157" />
+
+                        <RadioButton
+                            BorderColor="White"
+                            HorizontalOptions="End"
+                            TextColor="Yellow" />
+
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Frame 1-->
+                <Frame
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    CornerRadius="10"
+                    HeightRequest="100"
+                    WidthRequest="170">
+                    <Grid>
+                        <Frame
+                            Padding="0"
+                            BorderColor="White"
+                            CornerRadius="10">
+                            <Image Aspect="AspectFill" Source="whitehouse" />
+                        </Frame>
+
+                        <BoxView
+                            BackgroundColor="Black"
+                            CornerRadius="10"
+                            HeightRequest="99"
+                            HorizontalOptions="FillAndExpand"
+                            Opacity="0.1"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="157" />
+
+                        <RadioButton
+                            BorderColor="White"
+                            HorizontalOptions="End"
+                            TextColor="Yellow" />
+
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+
+            </toolkit:UniformItemsLayout>
+
+            <Label
+                Margin="0,15,0,0"
+                FontFamily="mnewsbold"
+                FontSize="Small"
+                HorizontalOptions="Center"
+                Text="view all" />
+
+            <HorizontalStackLayout Margin="0,40,0,0" HorizontalOptions="Center">
+                <BoxView
+                    BackgroundColor="Black"
+                    CornerRadius="10"
+                    HeightRequest="3"
+                    VerticalOptions="Center"
+                    WidthRequest="10"
+                    Color="Black" />
+                <BoxView
+                    Margin="4,0,0,0"
+                    BackgroundColor="Black"
+                    CornerRadius="10"
+                    HeightRequest="3"
+                    VerticalOptions="Center"
+                    WidthRequest="60"
+                    Color="Black" />
+                <BoxView
+                    Margin="5,0,0,0"
+                    BackgroundColor="Black"
+                    CornerRadius="10"
+                    HeightRequest="3"
+                    VerticalOptions="Center"
+                    WidthRequest="10"
+                    Color="Black" />
+            </HorizontalStackLayout>
+
+            <Button Text="save" FontFamily="mnewsbold" TextColor="White" WidthRequest="250" CornerRadius="15" Margin="15" BackgroundColor="Black"/>
+            <!--#endregion-->
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

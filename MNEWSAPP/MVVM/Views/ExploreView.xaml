@@ -12,8 +12,7 @@
                 ColumnDefinitions=".5*,.5*"
                 RowDefinitions="1*">
                 <Label
-                    FontAttributes="Bold"
-                    FontFamily="mnewdbold"
+                    FontFamily="poppinsbold"
                     FontSize="Body"
                     HorizontalOptions="Start"
                     Text="Popular Tags" />
@@ -22,7 +21,10 @@
                     HorizontalOptions="End"
                     HorizontalTextAlignment="End"
                     Text="view all"
-                    VerticalOptions="End" />
+                    FontFamily="mnewsbold"
+                    FontAttributes="Bold"
+                       TextColor="#F98121"
+                    VerticalOptions="Center" />
             </Grid>
 
             <FlexLayout Margin="5,0,5,20" Wrap="Wrap">
@@ -149,23 +151,27 @@
             </FlexLayout>
             <!--#endregion-->
 
+            <BoxView HeightRequest="2" Color="#F2F2F2" />
+
             <!--#region LATEST NEWS-->
             <Grid
-                Margin="0,0,0,10"
+                Margin="0,15,0,10"
                 ColumnDefinitions=".5*,.5*"
                 RowDefinitions="1*">
                 <Label
-                    FontAttributes="Bold"
-                    FontFamily="mnewdbold"
+                    
+                    FontFamily="poppinsbold"
                     FontSize="Body"
                     HorizontalOptions="Start"
                     Text="Latest News" />
                 <Label
                     Grid.Column="1"
                     HorizontalOptions="End"
+                    TextColor="#F98121"
+FontFamily="mnewsbold"
                     HorizontalTextAlignment="End"
                     Text="view all"
-                    VerticalOptions="End" />
+                    VerticalOptions="Center" />
             </Grid>
 
             <!--<CollectionView
@@ -178,7 +184,7 @@
 
             <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal">
                 <HorizontalStackLayout Padding="10" Spacing="10">
-                    <VerticalStackLayout Margin="10,0,10,0" WidthRequest="200">
+                    <VerticalStackLayout Margin="10,0,10,10" WidthRequest="200">
                         <Frame
                             Padding="0"
                             CornerRadius="10"
@@ -222,23 +228,27 @@
 
             <!--#endregion-->
 
+            <BoxView HeightRequest="2" Color="#F2F2F2" />
+
             <!--#region RECOMMENDATION-->
             <Grid
-                Margin="0,0,0,10"
-                ColumnDefinitions=".5*,.5*"
-                RowDefinitions="1*">
+                Margin="0,15,0,10"
+                ColumnDefinitions=".5*,.5*">
                 <Label
                     FontAttributes="Bold"
-                    FontFamily="mnewdbold"
+                    FontFamily="poppinsbold"
                     FontSize="Body"
+                    VerticalOptions="End"
                     HorizontalOptions="Start"
                     Text="Recommendations" />
                 <Label
                     Grid.Column="1"
                     HorizontalOptions="End"
                     HorizontalTextAlignment="End"
+                    TextColor="#F98121"
+                    FontFamily="mnewsbold"
                     Text="view all"
-                    VerticalOptions="End" />
+                    VerticalOptions="Center" />
             </Grid>
 
             <Grid ColumnDefinitions=".7*, .3*">
