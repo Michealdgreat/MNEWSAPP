@@ -16,7 +16,7 @@ namespace MNEWSAPP
             //MainPage = new NavigationPage(homeView);
 
             //MainPage = new NavigationPage(new IndexPage());
-            MainPage = new ExploreView();
+            MainPage = new InterestView();
 
         }
     }

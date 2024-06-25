@@ -97,8 +97,16 @@
 		<None Remove="Resources\Fonts\POPPINS-THINITALIC.TTF" />
 		<None Remove="Resources\Fonts\serifprobold.ttf" />
 		<None Remove="Resources\Fonts\source-serif-pro.semibold.ttf" />
+		<None Remove="Resources\Images\canoe.jpeg" />
+		<None Remove="Resources\Images\football.jpeg" />
+		<None Remove="Resources\Images\houseinvillage.jpeg" />
 		<None Remove="Resources\Images\Microsoft.jpg" />
+		<None Remove="Resources\Images\pexel1.jpeg" />
+		<None Remove="Resources\Images\pexel2.jpeg" />
+		<None Remove="Resources\Images\pexel3.jpeg" />
+		<None Remove="Resources\Images\rockyhills.jpeg" />
 		<None Remove="Resources\Images\tropical.jpg" />
+		<None Remove="Resources\Images\whitehouse.jpeg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -132,6 +140,9 @@
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\IndexPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="MVVM\Views\InterestView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 	</ItemGroup>
 

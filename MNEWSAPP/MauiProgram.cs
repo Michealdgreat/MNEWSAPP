@@ -35,6 +35,12 @@ namespace MNEWSAPP
                     fonts.AddFont("serifprobold.ttf", "mnewslogo");
                     fonts.AddFont("MONTSERRAT-BOLD.TTF", "mnewsbold");
                     fonts.AddFont("MONTSERRAT-MEDIUM.TTF", "mnewsmedium");
+                    fonts.AddFont("POPPINS-BOLD.TTF", "poppinsbold");
+                    fonts.AddFont("POPPINS-BLACK.TTF", "poppinsblack");
+                    fonts.AddFont("POPPINS-SEMIBOLD.TTF", "poppinssemibold");
+
+
+
 
                 });
 
