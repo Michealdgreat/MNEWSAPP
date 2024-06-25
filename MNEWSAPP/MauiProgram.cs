@@ -34,6 +34,8 @@ namespace MNEWSAPP
                     fonts.AddFont("mnewsfontfamily.ttf", "mnewsicons");
                     fonts.AddFont("serifprobold.ttf", "mnewslogo");
                     fonts.AddFont("MONTSERRAT-BOLD.TTF", "mnewsbold");
+                    fonts.AddFont("MONTSERRAT-MEDIUM.TTF", "mnewsmedium");
+
                 });
 
             // Register services and view models with DI

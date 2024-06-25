@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNEWSAPP", "MNEWSAPP\MNEWSAPP.csproj", "{8A0E294D-FF38-443D-B270-A60A42F923DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNEWSAPP", "MNEWSAPP\MNEWSAPP.csproj", "{8A0E294D-FF38-443D-B270-A60A42F923DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

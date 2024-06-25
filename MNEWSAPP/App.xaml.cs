@@ -15,7 +15,9 @@ namespace MNEWSAPP
             //var homeView = serviceProvider.GetRequiredService<HomeView>();
             //MainPage = new NavigationPage(homeView);
 
-            MainPage = new IndexPage();
+            //MainPage = new NavigationPage(new IndexPage());
+            MainPage = new ExploreView();
+
         }
     }
 }
