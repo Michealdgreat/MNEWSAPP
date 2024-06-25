@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MNEWSAPP.MVVM.Views.ArticleDetailsView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Post">
+    <VerticalStackLayout>
+        <Label
+            Padding="20"
+            FontAttributes="Bold"
+            FontFamily="mnewsbold"
+            FontSize="Large"
+            HorizontalOptions="CenterAndExpand"
+            Text="{Binding Title}" />
+
+        <Frame
+            Padding="0"
+            Margin="15,0,15,15"
+            BorderColor="#F9F9F9"
+            CornerRadius="5">
+            <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
+        </Frame>
+        <HorizontalStackLayout Spacing="20" Margin="20,0,0,20">
+            <Label
+            FontSize="Caption"
+            HorizontalOptions="CenterAndExpand"
+            Text="{Binding Author}" 
+                FontAttributes="Bold"/>
+            <Label
+            FontSize="Caption"
+            HorizontalOptions="CenterAndExpand"
+            Text="{Binding PublishedAt}" />
+        </HorizontalStackLayout>
+        <Label
+            Margin="20,0,0,0"
+            FontSize="Body"
+            FontFamily="mnewsmwdium"
+            LineHeight="1.2"
+            CharacterSpacing="0.1"
+            HorizontalOptions="CenterAndExpand"
+            Text="{Binding Content}" />
+    </VerticalStackLayout>
+</ContentPage>
