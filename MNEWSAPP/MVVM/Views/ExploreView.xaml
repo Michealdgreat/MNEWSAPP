@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MNEWSAPP.MVVM.Views.ExploreView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ExploreView">
+    <ScrollView Padding="20">
+        <VerticalStackLayout>
+            <!--#region POPULAR TAGS-->
+            <Grid
+                Margin="0,0,0,10"
+                ColumnDefinitions=".5*,.5*"
+                RowDefinitions="1*">
+                <Label
+                    FontAttributes="Bold"
+                    FontFamily="mnewdbold"
+                    FontSize="Body"
+                    HorizontalOptions="Start"
+                    Text="Popular Tags" />
+                <Label
+                    Grid.Column="1"
+                    HorizontalOptions="End"
+                    HorizontalTextAlignment="End"
+                    Text="view all"
+                    VerticalOptions="End" />
+            </Grid>
+
+            <FlexLayout Margin="5,0,5,20" Wrap="Wrap">
+                <Frame
+                    Margin="2"
+                    Padding="0"
+                    BackgroundColor="#F9F9F9"
+                    BorderColor="#F9F9F9"
+                    CornerRadius="5">
+                    <Label
+                        Margin="3"
+                        FontSize="Small"
+                        Text="#Microsoft" />
+                </Frame>
+
+                <Frame
+                    Margin="2"
+                    Padding="0"
+                    BackgroundColor="#F9F9F9"
+                    BorderColor="#F9F9F9"
+                    CornerRadius="5">
+                    <Label
+                        Margin="3"
+                        FontSize="Small"
+                        Text="#Apple" />
+                </Frame>
+
+                <Frame
+                    Margin="2"
+                    Padding="0"
+                    BackgroundColor="#F9F9F9"
+                    BorderColor="#F9F9F9"
+                    CornerRadius="5">
+                    <Label
+                        Margin="3"
+                        FontSize="Small"
+                        Text="#Meta" />
+                </Frame>
+
+                <Frame
+                    Margin="2"
+                    Padding="0"
+                    BackgroundColor="#F9F9F9"
+                    BorderColor="#F9F9F9"
+                    CornerRadius="5">
+                    <Label
+                        Margin="3"
+                        FontSize="Small"
+                        Text="#AI" />
+                </Frame>
+
+                <Frame
+                    Margin="2"
+                    Padding="0"
+                    BackgroundColor="#F9F9F9"
+                    BorderColor="#F9F9F9"
+                    CornerRadius="5">
+                    <Label
+                        Margin="3"
+                        FontSize="Small"
+                        Text="#Videos" />
+                </Frame>
+
+                <Frame
+                    Margin="2"
+                    Padding="0"
+                    BackgroundColor="#F9F9F9"
+                    BorderColor="#F9F9F9"
+                    CornerRadius="5">
+                    <Label
+                        Margin="3"
+                        FontSize="Small"
+                        Text="#Entertainment" />
+                </Frame>
+
+                <Frame
+                    Margin="2"
+                    Padding="0"
+                    BackgroundColor="#F9F9F9"
+                    BorderColor="#F9F9F9"
+                    CornerRadius="5">
+                    <Label
+                        Margin="3"
+                        FontSize="Small"
+                        Text="#Tiktok" />
+                </Frame>
+
+                <Frame
+                    Margin="2"
+                    Padding="0"
+                    BackgroundColor="#F9F9F9"
+                    BorderColor="#F9F9F9"
+                    CornerRadius="5">
+                    <Label
+                        Margin="3"
+                        FontSize="Small"
+                        Text="#Finland" />
+                </Frame>
+
+                <Frame
+                    Margin="2"
+                    Padding="0"
+                    BackgroundColor="#F9F9F9"
+                    BorderColor="#F9F9F9"
+                    CornerRadius="5">
+                    <Label
+                        Margin="3"
+                        FontSize="Small"
+                        Text="#MondayMorning" />
+                </Frame>
+
+                <Frame
+                    Margin="2"
+                    Padding="0"
+                    BackgroundColor="#F9F9F9"
+                    BorderColor="#F9F9F9"
+                    CornerRadius="5">
+                    <Label
+                        Margin="3"
+                        FontSize="Small"
+                        Text="#Business" />
+                </Frame>
+
+            </FlexLayout>
+            <!--#endregion-->
+
+            <!--#region LATEST NEWS-->
+            <Grid
+                Margin="0,0,0,10"
+                ColumnDefinitions=".5*,.5*"
+                RowDefinitions="1*">
+                <Label
+                    FontAttributes="Bold"
+                    FontFamily="mnewdbold"
+                    FontSize="Body"
+                    HorizontalOptions="Start"
+                    Text="Latest News" />
+                <Label
+                    Grid.Column="1"
+                    HorizontalOptions="End"
+                    HorizontalTextAlignment="End"
+                    Text="view all"
+                    VerticalOptions="End" />
+            </Grid>
+
+            <!--<CollectionView
+                ItemsSource="{Binding PropertyName}"
+                SelectionChangedCommand="{Binding CommandName}"
+                SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>-->
+
+
+            <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal">
+                <HorizontalStackLayout Padding="10" Spacing="10">
+                    <VerticalStackLayout Margin="10,0,10,0" WidthRequest="200">
+                        <Frame
+                            Padding="0"
+                            CornerRadius="10"
+                            WidthRequest="200">
+                            <Image Source="tropical" />
+                        </Frame>
+                        <Label
+                            Margin="0,5,0,0"
+                            FontSize="Caption"
+                            Text="Climate change: Arctic warming linked to colder winters" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Margin="10,0,10,0" WidthRequest="200">
+                        <Frame
+                            Padding="0"
+                            CornerRadius="10"
+                            WidthRequest="200">
+                            <Image Source="tropical" />
+                        </Frame>
+                        <Label
+                            Margin="0,5,0,0"
+                            FontSize="Caption"
+                            Text="Climate change: Arctic warming linked to colder winters" />
+                    </VerticalStackLayout>
+
+                </HorizontalStackLayout>
+            </ScrollView>
+
+
+
+            <!--</DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label Text="Nothing to see here." />
+                        </StackLayout>
+                    </ContentView>
+                </CollectionView.EmptyView>
+            </CollectionView>-->
+
+            <!--#endregion-->
+
+            <!--#region RECOMMENDATION-->
+            <Grid
+                Margin="0,0,0,10"
+                ColumnDefinitions=".5*,.5*"
+                RowDefinitions="1*">
+                <Label
+                    FontAttributes="Bold"
+                    FontFamily="mnewdbold"
+                    FontSize="Body"
+                    HorizontalOptions="Start"
+                    Text="Recommendations" />
+                <Label
+                    Grid.Column="1"
+                    HorizontalOptions="End"
+                    HorizontalTextAlignment="End"
+                    Text="view all"
+                    VerticalOptions="End" />
+            </Grid>
+
+            <Grid ColumnDefinitions=".7*, .3*">
+                <VerticalStackLayout>
+                    <Label
+                        Margin="0,0,0,10"
+                        FontSize="Small"
+                        Text="US jobs growth disappoints as recovery falters" />
+                    <HorizontalStackLayout>
+                        <Label FontSize="Micro" Text="Nature Channel" />
+                        <Label FontSize="Micro" Text="  " />
+                        <Label FontSize="Micro" Text="4mins ago" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <Frame
+                    Grid.Column="1"
+                    Padding="0"
+                    CornerRadius="5">
+                    <Image Aspect="AspectFill" Source="tropical" />
+                </Frame>
+            </Grid>
+            <!--#endregion-->
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+
+</ContentPage>
