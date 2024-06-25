@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    Title="IndexPage">
+    Title="MNews">
     <ScrollView>
         <VerticalStackLayout>
             <!--#region Top Featured Section-->
@@ -19,6 +19,7 @@
                             <StackLayout Orientation="Vertical" Spacing="5">
                                 <Label
                                     FontFamily="mnewsbold"
+                                    FontAttributes="Bold"
                                     FontSize="Body"
                                     Text="{Binding Title}" />
                                 <HorizontalStackLayout>
@@ -27,7 +28,7 @@
                                         Text="{Binding Author}"
                                         TextColor="Black" />
                                     <Label Text="    " />
-                                    <Label Text="{Binding PublishedAt}" />
+                                    <!--<Label Text="{Binding PublishedAt}"/>-->
                                 </HorizontalStackLayout>
                                 <Grid
                                     ColumnDefinitions=".6*,.4*"
@@ -54,6 +55,7 @@
                         </Frame>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
+               
             </VerticalStackLayout>
 
             <!--#endregion-->
@@ -137,7 +139,13 @@
                             <Label
                                 FontAttributes="Bold"
                                 FontSize="Small"
-                                Text="{Binding Title}" />
+                                Margin="9,0,5,0"
+                                Text="{Binding Title}" 
+                               >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
                             <Frame
                                 Grid.Column="1"
                                 Padding="0"
@@ -150,7 +158,6 @@
             </VerticalStackLayout>
 
             <!--#endregion-->
-
 
         </VerticalStackLayout>
     </ScrollView>
