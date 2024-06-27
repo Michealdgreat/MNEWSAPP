@@ -10,6 +10,7 @@
     <ShellContent Route="IndexPage" ContentTemplate="{DataTemplate local:IndexPage}" />
     <ShellContent Route="ArticleDetailsView" ContentTemplate="{DataTemplate local:ArticleDetailsView}" />
     <ShellContent Route="WebPageView" ContentTemplate="{DataTemplate local:WebPageView}" />
+    <ShellContent Route="CategoryView" ContentTemplate="{DataTemplate local:CategoryView}"/>
 
 
 </Shell>

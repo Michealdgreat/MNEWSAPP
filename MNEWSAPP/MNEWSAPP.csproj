@@ -140,8 +140,8 @@
 		<MauiXaml Update="MVVM\Views\ArticleDetailsView.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
-		<MauiXaml Update="MVVM\Views\Category.xaml">
-			<Generator>MSBuild:Compile</Generator>
+		<MauiXaml Update="MVVM\Views\CategoryView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\ExploreView.xaml">
 		  <Generator>MSBuild:Compile</Generator>

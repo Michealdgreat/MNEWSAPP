@@ -45,21 +45,29 @@ namespace MNEWSAPP.Service
                 var responseString = await response.Content.ReadAsStringAsync();
                 var data = JsonConvert.DeserializeObject<ResponseModel>(responseString);
 
-                var Articles = data.Articles.TakeWhile(z => z.UrlToImage != null).Take(5).ToList();
+                var filteredArticles = data?.Articles?.Where(article => !string.IsNullOrEmpty(article.UrlToImage)).ToList();
+                var filteredData = new ResponseModel { Articles = filteredArticles };
 
-
-                MainThread.BeginInvokeOnMainThread(async () =>
+                var processedArticles = await Task.Run(() =>
                 {
-                    News?.Clear();
-                    if (Articles != null)
+                    var articles = new List<ArticleModel>();
+                    if (filteredData?.Articles != null)
                     {
-                        foreach (var article in Articles)
+                        foreach (var article in filteredData.Articles.Take(6))
                         {
-                            article.UrlToImage = await ImageCache.GetImageFromCacheAsync(article.UrlToImage);
-                            News?.Add(article);
+                            //article.UrlToImage = await ImageCache.GetImageFromCacheAsync(article.UrlToImage);
+                            articles.Add(article);
                         }
                     }
+                    return articles;
                 });
+
+                foreach (var article in processedArticles)
+                {
+                    //article.UrlToImage = await ImageCache.GetImageFromCacheAsync(article.UrlToImage);
+                    News?.Add(article);
+                }
+
             }
 
             return News;

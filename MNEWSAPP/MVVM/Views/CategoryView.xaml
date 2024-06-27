@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MNEWSAPP.MVVM.Views.CategoryView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="CategoryView"
+    Padding="20">
+    <VerticalStackLayout BindableLayout.ItemsSource="{Binding ArticleModel}">
+        <BindableLayout.ItemTemplate>
+            <DataTemplate>
+                <VerticalStackLayout>
+                    <Label
+                        Margin="9,10,5,0"
+                        FontFamily="mnewsbold"
+                        FontSize="Body"
+                        LineHeight="1"
+                        Text="{Binding Title}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView
+                        Margin="0,10,0,0"
+                        HeightRequest="1"
+                        Color="LightGrey" />
+                </VerticalStackLayout>
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+    </VerticalStackLayout>
+</ContentPage>

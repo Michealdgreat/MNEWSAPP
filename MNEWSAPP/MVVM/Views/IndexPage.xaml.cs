@@ -49,4 +49,54 @@ public partial class IndexPage : ContentPage
         }
     }
 
+    private async void WindowsTapped(object sender, TappedEventArgs e)
+    {
+        List<ArticleModel> articleModel = new();
+
+        var data = await _getnews.GetNewsAsync("Microsoft");
+        if (data != null)
+        {
+            foreach (var item in data)
+            {
+                articleModel.Add(item);
+            }
+        }
+
+        var navigationParameters = new Dictionary<string, object>
+        {
+            {"data",articleModel }
+        };
+
+        await Shell.Current.GoToAsync("CategoryView", navigationParameters);
+    }
+
+    private void AppleTapped(object sender, TappedEventArgs e)
+    {
+
+    }
+
+    private void GoogleTapped(object sender, TappedEventArgs e)
+    {
+
+    }
+
+    private void FacebokTapped(object sender, TappedEventArgs e)
+    {
+
+    }
+
+    private void xLogoTapped(object sender, TappedEventArgs e)
+    {
+
+    }
+
+    private void AmazonTapped(object sender, TappedEventArgs e)
+    {
+
+    }
+
+    private void GithubTapped(object sender, TappedEventArgs e)
+    {
+
+    }
 }

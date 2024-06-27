@@ -5,9 +5,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MNEWSAPP.MVVM.Views"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:ui="clr-namespace:Xe.AcrylicView;assembly=Xe.AcrylicView"
     Title="MNews">
+
     <ScrollView Margin="4" VerticalScrollBarVisibility="Never">
         <VerticalStackLayout>
+
             <!--#region Top Featured Section-->
             <VerticalStackLayout BindableLayout.ItemsSource="{Binding TopThreeNews}">
                 <BindableLayout.ItemTemplate>
@@ -22,10 +25,9 @@
                                     FontAttributes="Bold"
                                     FontFamily="mnewsbold"
                                     FontSize="Body"
-                                    Text="{Binding Title}" 
-                                    >
+                                    Text="{Binding Title}">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="FraturedSectionTapped"/>
+                                        <TapGestureRecognizer Tapped="FraturedSectionTapped" />
                                     </Label.GestureRecognizers>
                                 </Label>
                                 <HorizontalStackLayout>
@@ -36,26 +38,31 @@
                                     <Label Text="    " />
                                     <!--<Label Text="{Binding PublishedAt}"/>-->
                                 </HorizontalStackLayout>
-                                <Grid
-                                    ColumnDefinitions=".6*,.4*"
-                                    ColumnSpacing="8"
-                                    RowDefinitions=".5*,.5*"
-                                    RowSpacing="8">
-                                    <Frame
-                                        Grid.RowSpan="2"
-                                        Padding="0"
-                                        HeightRequest="250">
+                                <Grid>
+                                    <Frame Padding="0" HeightRequest="250">
                                         <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
                                     </Frame>
-                                    <Frame Grid.Column="1" Padding="0">
-                                        <Image Aspect="AspectFill" Source="canoe" />
-                                    </Frame>
-                                    <Frame
-                                        Grid.Row="1"
-                                        Grid.Column="1"
-                                        Padding="0">
-                                        <Image Aspect="AspectFill" Source="pexel3" />
-                                    </Frame>
+
+                                    <ui:AcrylicView
+                                        BorderColor="Black"
+                                        BorderThickness="0"
+                                        CornerRadius="0,0,10,10"
+                                        EffectStyle="Light"
+                                        HeightRequest="70"
+                                        IsClippedToBounds="True"
+                                        TintColor="Black"
+                                        TintOpacity=".02"
+                                        VerticalOptions="End" />
+                                    <Label
+                                        Margin="10"
+                                        FontAttributes="Italic"
+                                        FontFamily="poppinssemibold"
+                                        FontSize="Body"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="2"
+                                        Text="{Binding Content}"
+                                        TextColor="White"
+                                        VerticalOptions="End" />
                                 </Grid>
                             </StackLayout>
                         </Frame>
@@ -67,7 +74,7 @@
 
             <!--#endregion-->
 
-            <!--#region Popular Redaction Section-->
+            <!--#region BrowseBy Section-->
             <VerticalStackLayout>
                 <Label
                     Margin="20"
@@ -100,28 +107,49 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>-->
-                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal">
                     <HorizontalStackLayout>
                         <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="windows"/>
+                            <Image Source="windows" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="WindowsTapped"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="Apple"/>
+                            <Image Source="Apple" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AppleTapped"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="google"/>
+                            <Image Source="google" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="GoogleTapped"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="facebook"/>
+                            <Image Source="facebook" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="FacebokTapped"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="xlogo"/>
+                            <Image Source="xlogo" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="xLogoTapped"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="amazon"/>
+                            <Image Source="amazon" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AmazonTapped"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="github"/>
+                            <Image Source="github" />
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="GithubTapped"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
                     </HorizontalStackLayout>
                 </ScrollView>
@@ -131,24 +159,30 @@
             <!--#region Browese By Section-->
             <VerticalStackLayout>
                 <Label
-    Margin="20,25,0,0"
-    FontFamily="mnewsbold"
-    FontSize="Medium"
-    Text="Recent News" />
-                <BoxView HeightRequest="2" Margin="20,5,20,0" Color="LightGray" VerticalOptions="Start" />
+                    Margin="20,25,0,0"
+                    FontFamily="mnewsbold"
+                    FontSize="Medium"
+                    Text="Recent News" />
+                <BoxView
+                    Margin="20,5,20,0"
+                    HeightRequest="2"
+                    VerticalOptions="Start"
+                    Color="LightGray" />
             </VerticalStackLayout>
 
 
             <!--#endregion-->
 
             <!--#region News Tabbed Section-->
+
             <VerticalStackLayout
                 x:Name="BrowseBy"
-                Padding="25"
                 Margin="0,-10,0,0"
+                Padding="25"
                 BindableLayout.ItemsSource="{Binding SelectFive}"
                 IsVisible="True"
-                Spacing="10">
+                Spacing="12">
+
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <Grid ColumnDefinitions=".8*,.2*" RowDefinitions="1*">
@@ -168,10 +202,16 @@
                                 CornerRadius="7">
                                 <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
                             </Frame>
+                            <BoxView
+                                HeightRequest="1"
+                                VerticalOptions="End"
+                                Color="LightGray" />
                         </Grid>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </VerticalStackLayout>
+
+
 
             <!--#endregion-->
 
