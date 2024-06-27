@@ -1,12 +1,17 @@
+using CommunityToolkit.Maui.Core.Extensions;
 using MNEWSAPP.MVVM.Models;
 using MNEWSAPP.MVVM.ViewModels;
+using MNEWSAPP.Service;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace MNEWSAPP.MVVM.Views;
 
 public partial class IndexPage : ContentPage
 {
     private HomeViewModel homeViewModel;
-    private int myProperty;
+
+    private GetNews _getnews = new();
 
     public IndexPage()
     {
@@ -22,17 +27,26 @@ public partial class IndexPage : ContentPage
         await homeViewModel.GetNews();
     }
 
-    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
     {
-        Label label = (Label)sender;
-        //string title = label.Text;
-        var article = label?.BindingContext as ArticleModel;
-        // Perform your desired action, e.g., navigate to another page, show an alert, etc.
-        //DisplayAlert("Label Tapped", $"You tapped on: {title}", "OK");
-
-        if (article != null)
+        if (sender is Label label && label.BindingContext is ArticleModel article)
         {
-            await Navigation.PushAsync(new ArticleDetailsView(article));
+            var navigationParameters = new Dictionary<string, object> { { "article", article } };
+            await Shell.Current.GoToAsync($"{nameof(ArticleDetailsView)}", navigationParameters);
+
+            //await Shell.Current.GoToAsync($"ArticleDetailsView", navigationParameters);
         }
     }
+
+    private async void FraturedSectionTapped(object sender, TappedEventArgs e)
+    {
+        if (sender is Label label && label.BindingContext is ArticleModel article)
+        {
+            var navigationParameters = new Dictionary<string, object> { { "article", article } };
+            await Shell.Current.GoToAsync($"{nameof(ArticleDetailsView)}", navigationParameters);
+
+            //await Shell.Current.GoToAsync($"ArticleDetailsView", navigationParameters);
+        }
+    }
+
 }

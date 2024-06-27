@@ -3,9 +3,10 @@
     x:Class="MNEWSAPP.MVVM.Views.IndexPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MNEWSAPP.MVVM.Views"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="MNews">
-    <ScrollView>
+    <ScrollView Margin="4" VerticalScrollBarVisibility="Never">
         <VerticalStackLayout>
             <!--#region Top Featured Section-->
             <VerticalStackLayout BindableLayout.ItemsSource="{Binding TopThreeNews}">
@@ -18,10 +19,15 @@
                             CornerRadius="10">
                             <StackLayout Orientation="Vertical" Spacing="5">
                                 <Label
-                                    FontFamily="mnewsbold"
                                     FontAttributes="Bold"
+                                    FontFamily="mnewsbold"
                                     FontSize="Body"
-                                    Text="{Binding Title}" />
+                                    Text="{Binding Title}" 
+                                    >
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="FraturedSectionTapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
                                 <HorizontalStackLayout>
                                     <Label
                                         FontSize="Small"
@@ -42,20 +48,21 @@
                                         <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
                                     </Frame>
                                     <Frame Grid.Column="1" Padding="0">
-                                        <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
+                                        <Image Aspect="AspectFill" Source="canoe" />
                                     </Frame>
                                     <Frame
                                         Grid.Row="1"
                                         Grid.Column="1"
                                         Padding="0">
-                                        <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
+                                        <Image Aspect="AspectFill" Source="pexel3" />
                                     </Frame>
                                 </Grid>
                             </StackLayout>
                         </Frame>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
-               
+
+
             </VerticalStackLayout>
 
             <!--#endregion-->
@@ -66,8 +73,8 @@
                     Margin="20"
                     FontFamily="mnewsbold"
                     FontSize="Medium"
-                    Text="Popular Redactions" />
-                <CollectionView
+                    Text="Browse By" />
+                <!--<CollectionView
                     Margin="20,0,0,0"
                     HorizontalScrollBarVisibility="Never"
                     ItemsLayout="HorizontalList"
@@ -92,56 +99,65 @@
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
-                </CollectionView>
+                </CollectionView>-->
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <HorizontalStackLayout>
+                        <Frame Style="{StaticResource BrowseBy}">
+                            <Image Source="windows"/>
+                        </Frame>
+                        <Frame Style="{StaticResource BrowseBy}">
+                            <Image Source="Apple"/>
+                        </Frame>
+                        <Frame Style="{StaticResource BrowseBy}">
+                            <Image Source="google"/>
+                        </Frame>
+                        <Frame Style="{StaticResource BrowseBy}">
+                            <Image Source="facebook"/>
+                        </Frame>
+                        <Frame Style="{StaticResource BrowseBy}">
+                            <Image Source="xlogo"/>
+                        </Frame>
+                        <Frame Style="{StaticResource BrowseBy}">
+                            <Image Source="amazon"/>
+                        </Frame>
+                        <Frame Style="{StaticResource BrowseBy}">
+                            <Image Source="github"/>
+                        </Frame>
+                    </HorizontalStackLayout>
+                </ScrollView>
             </VerticalStackLayout>
             <!--#endregion-->
 
             <!--#region Browese By Section-->
-            <Label
-                Margin="0,5,0,0"
-                Padding="20"
-                FontFamily="mnewsbold"
-                FontSize="Medium"
-                Text="Browse By" />
-            <HorizontalStackLayout Margin="25,0,0,0" Spacing="25">
+            <VerticalStackLayout>
                 <Label
-                    FontFamily="mnewsbold"
-                    FontSize="Caption"
-                    Text="Trending"
-                    TextColor="Black" />
-                <Label
-                    FontFamily="mnewsbold"
-                    FontSize="Caption"
-                    Text="Recommendation"
-                    TextColor="LightGray" />
-                <Label
-                    FontFamily="mnewsbold"
-                    FontSize="Caption"
-                    Text="Newest"
-                    TextColor="LightGray" />
-                <Label
-                    FontFamily="mnewsbold"
-                    FontSize="Caption"
-                    Text="Videos"
-                    TextColor="LightGray" />
-            </HorizontalStackLayout>
+    Margin="20,25,0,0"
+    FontFamily="mnewsbold"
+    FontSize="Medium"
+    Text="Recent News" />
+                <BoxView HeightRequest="2" Margin="20,5,20,0" Color="LightGray" VerticalOptions="Start" />
+            </VerticalStackLayout>
+
 
             <!--#endregion-->
 
             <!--#region News Tabbed Section-->
             <VerticalStackLayout
+                x:Name="BrowseBy"
                 Padding="25"
+                Margin="0,-10,0,0"
                 BindableLayout.ItemsSource="{Binding SelectFive}"
+                IsVisible="True"
                 Spacing="10">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <Grid ColumnDefinitions=".8*,.2*" RowDefinitions="1*">
                             <Label
-                                FontAttributes="Bold"
-                                FontSize="Small"
                                 Margin="9,0,5,0"
-                                Text="{Binding Title}" 
-                               >
+                                FontAttributes="Bold"
+                                FontFamily="poppinssemibold"
+                                FontSize="Small"
+                                Text="{Binding Title}">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                 </Label.GestureRecognizers>
