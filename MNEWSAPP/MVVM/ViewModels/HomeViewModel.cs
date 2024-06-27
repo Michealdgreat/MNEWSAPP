@@ -4,13 +4,15 @@ using Newtonsoft.Json;
 using MNEWSAPP.MVVM.Models;
 using System.Threading.Tasks;
 using MNEWSAPP.Service;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace MNEWSAPP.MVVM.ViewModels
 {
-    public partial class HomeViewModel : ObservableObject
+    public partial class HomeViewModel : ObservableObject, INotifyPropertyChanged
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=";
+        private readonly string _baseUrl = "https://newsapi.org/v2/top-headlines?country=us&apiKey=";
 
         [ObservableProperty]
         private ObservableCollection<ArticleModel>? news;
@@ -46,15 +48,23 @@ namespace MNEWSAPP.MVVM.ViewModels
                 var responseString = await response.Content.ReadAsStringAsync();
                 var data = JsonConvert.DeserializeObject<ResponseModel>(responseString);
 
+                var filteredArticles = data?.Articles?.Where(article => !string.IsNullOrEmpty(article.UrlToImage)).ToList();
+
+                var filteredData = new ResponseModel { Articles = filteredArticles };
+
+
                 MainThread.BeginInvokeOnMainThread(async () =>
                 {
                     News?.Clear();
-                    if (data?.Articles != null)
+                    if (filteredData?.Articles != null)
                     {
-                        foreach (var article in data.Articles)
+                        foreach (var article in filteredData.Articles.Take(12))
                         {
+
+
                             article.UrlToImage = await ImageCache.GetImageFromCacheAsync(article.UrlToImage);
                             News?.Add(article);
+
                         }
                     }
                 });
@@ -73,8 +83,22 @@ namespace MNEWSAPP.MVVM.ViewModels
         {
             get
             {
-                return new ObservableCollection<ArticleModel>(News?.Take(5) ?? Enumerable.Empty<ArticleModel>());
+                return new ObservableCollection<ArticleModel>(News?.Skip(2).Take(10) ?? Enumerable.Empty<ArticleModel>());
             }
+            set
+            {
+
+                SelectFive = value;
+                OnPropertyChanged();
+
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string? propName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
 
         private async Task SetApiKeyAsync(string apiKeyValue)
