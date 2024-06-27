@@ -10,7 +10,7 @@ public static class ImageCache
 {
     private static readonly HttpClient _httpClient = new HttpClient();
 
-    public static async Task<string> GetImageFromCacheAsync(string url)
+    public static async Task<string> GetImageFromCacheAsync(string? url)
     {
         var cacheDir = FileSystem.CacheDirectory;
         var fileName = Path.Combine(cacheDir, Path.GetFileName(url));

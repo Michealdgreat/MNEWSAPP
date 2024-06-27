@@ -1,53 +1,74 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.Extensions.Configuration;
 using MNEWSAPP.MVVM.Models;
+using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 using System.Text.Json;
 
 namespace MNEWSAPP.Service
 {
-    public class GetNews
+    public partial class GetNews : ObservableObject
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=";
-        private readonly IConfiguration _config;
-        private readonly JsonSerializerOptions _serializerOptions;
+        private readonly string _baseUrl = "https://newsapi.org/v2/everything?q=";
 
+        [ObservableProperty]
+        private ObservableCollection<ArticleModel>? news;
 
-
-
-        public GetNews(IConfiguration config)
+        public GetNews()
         {
             _httpClient = new HttpClient();
-            _config = config;
-            _serializerOptions = new JsonSerializerOptions { WriteIndented = true };
+            News = new ObservableCollection<ArticleModel>();
+
         }
 
-
-
-
-        public async Task<List<ArticleModel>?> GetNewsAsync()
+        public async Task<ObservableCollection<ArticleModel>?> GetNewsAsync(string keyword)
         {
-            string apiKey = _config["apiKey"];
+            var apiKey = await SecureStorage.GetAsync("apiKey");
+            if (string.IsNullOrEmpty(apiKey))
+            {
+                await SetApiKeyAsync("d9ab75985be34739a45d52acfc196efa");
+                apiKey = await SecureStorage.GetAsync("apiKey");
+            }
+
             if (string.IsNullOrEmpty(apiKey))
             {
                 throw new InvalidOperationException("API key is not set in the configuration.");
             }
 
-            string url = $"{_baseUrl}{apiKey}";
-            _httpClient.DefaultRequestHeaders.Add("User-Agent", "MN News/1.0");
-            HttpRequestMessage request = new(HttpMethod.Get, url);
-            request.Headers.Add("Authorization", "Bearer " + apiKey);
+            string url = $"{_baseUrl}{keyword}&apiKey={apiKey}";
+            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("MN News/1.0");
 
-            HttpResponseMessage response = await _httpClient.GetAsync(url);
-
-            if (!response.IsSuccessStatusCode)
+            var response = await _httpClient.GetAsync(url);
+            if (response.IsSuccessStatusCode)
             {
-                return null;
+                var responseString = await response.Content.ReadAsStringAsync();
+                var data = JsonConvert.DeserializeObject<ResponseModel>(responseString);
+
+                var Articles = data.Articles.TakeWhile(z => z.UrlToImage != null).Take(5).ToList();
+
+
+                MainThread.BeginInvokeOnMainThread(async () =>
+                {
+                    News?.Clear();
+                    if (Articles != null)
+                    {
+                        foreach (var article in Articles)
+                        {
+                            article.UrlToImage = await ImageCache.GetImageFromCacheAsync(article.UrlToImage);
+                            News?.Add(article);
+                        }
+                    }
+                });
             }
 
-            await using var responseStream = await response.Content.ReadAsStreamAsync();
-            var articles = await JsonSerializer.DeserializeAsync<List<ArticleModel>>(responseStream, _serializerOptions);
+            return News;
+        }
 
-            return articles;
+
+        private async Task SetApiKeyAsync(string apiKeyValue)
+        {
+            await SecureStorage.SetAsync("apiKey", apiKeyValue);
         }
     }
 }
