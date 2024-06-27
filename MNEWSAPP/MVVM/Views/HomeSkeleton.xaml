@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="MNEWSAPP.MVVM.Views.HomeSkeleton"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+    <Grid>
+        <BoxView
+            x:Name="Skeleton"
+            BackgroundColor="#e0e0e0"
+            CornerRadius="8"
+            HeightRequest="118"
+            WidthRequest="210">
+            <BoxView.Behaviors>
+                <animations:AnimationBehavior>
+                    <animations:AnimationBehavior.AnimationType>
+                        <animations:FadeAnimation Opacity="0.5" />
+                    </animations:AnimationBehavior.AnimationType>
+                </animations:AnimationBehavior>
+            </BoxView.Behaviors>
+        </BoxView>
+    </Grid>
+
+</ContentView>

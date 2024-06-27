@@ -14,7 +14,6 @@ namespace MNEWSAPP
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
-
             // Load the configuration
             //var configuration = new ConfigurationBuilder()
             //    .SetBasePath(AppContext.BaseDirectory)

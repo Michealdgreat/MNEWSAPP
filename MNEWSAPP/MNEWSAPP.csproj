@@ -97,22 +97,33 @@
 		<None Remove="Resources\Fonts\POPPINS-THINITALIC.TTF" />
 		<None Remove="Resources\Fonts\serifprobold.ttf" />
 		<None Remove="Resources\Fonts\source-serif-pro.semibold.ttf" />
+		<None Remove="Resources\Images\amazon.jpg" />
+		<None Remove="Resources\Images\apple.jpg" />
 		<None Remove="Resources\Images\canoe.jpeg" />
+		<None Remove="Resources\Images\chatgpt.jpg" />
+		<None Remove="Resources\Images\facebook.jpg" />
 		<None Remove="Resources\Images\football.jpeg" />
+		<None Remove="Resources\Images\github.jpg" />
+		<None Remove="Resources\Images\google.jpg" />
 		<None Remove="Resources\Images\houseinvillage.jpeg" />
 		<None Remove="Resources\Images\Microsoft.jpg" />
 		<None Remove="Resources\Images\pexel1.jpeg" />
 		<None Remove="Resources\Images\pexel2.jpeg" />
 		<None Remove="Resources\Images\pexel3.jpeg" />
+		<None Remove="Resources\Images\reddit.jpg" />
 		<None Remove="Resources\Images\rockyhills.jpeg" />
+		<None Remove="Resources\Images\stackoverflow.jpg" />
 		<None Remove="Resources\Images\tropical.jpg" />
 		<None Remove="Resources\Images\whitehouse.jpeg" />
+		<None Remove="Resources\Images\windows.jpg" />
+		<None Remove="Resources\Images\xlogo.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="AcrylicView.Maui" Version="2.1.3" />
 		<PackageReference Include="CardsView.Maui" Version="0.0.9" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.1" />
+		<PackageReference Include="CommunityToolkit.Maui.Markup" Version="4.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="CustomShellMaui" Version="1.0.6" />
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
@@ -135,6 +146,9 @@
 		<MauiXaml Update="MVVM\Views\ExploreView.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="MVVM\Views\HomeSkeleton.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\HomeView.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
@@ -142,6 +156,15 @@
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\InterestView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="MVVM\Views\SetApiKeyView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="MVVM\Views\WebPageView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Resources\Styles\mnews.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 	</ItemGroup>

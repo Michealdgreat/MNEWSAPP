@@ -28,12 +28,7 @@
             <toolkit:UniformItemsLayout Margin="0,10,0,0" MaxColumns="2">
 
                 <!--#region Frame 1-->
-                <Frame
-                    Margin="0,10,0,0"
-                    Padding="0"
-                    CornerRadius="10"
-                    HeightRequest="100"
-                    WidthRequest="170">
+                <Frame Style="{StaticResource FrameStyles}">
                     <Grid>
                         <Frame
                             Padding="0"
@@ -42,14 +37,7 @@
                             <Image Aspect="AspectFill" Source="football" />
                         </Frame>
 
-                        <BoxView
-                            BackgroundColor="Black"
-                            CornerRadius="10"
-                            HeightRequest="100"
-                            HorizontalOptions="FillAndExpand"
-                            Opacity="0.1"
-                            VerticalOptions="FillAndExpand"
-                            WidthRequest="170" />
+                        <BoxView Style="{StaticResource FrameBox}" />
 
                         <RadioButton
                             BorderColor="White"
@@ -62,11 +50,7 @@
 
                 <!--#region Frame 1-->
                 <Frame
-                    Margin="0,10,0,0"
-                    Padding="0"
-                    CornerRadius="10"
-                    HeightRequest="100"
-                    WidthRequest="170">
+                   Style="{StaticResource FrameStyles}">
                     <Grid>
                         <Frame
                             Padding="0"
@@ -76,13 +60,7 @@
                         </Frame>
 
                         <BoxView
-                            BackgroundColor="Black"
-                            CornerRadius="10"
-                            HeightRequest="99"
-                            HorizontalOptions="FillAndExpand"
-                            Opacity="0.1"
-                            VerticalOptions="FillAndExpand"
-                            WidthRequest="157" />
+                            Style="{StaticResource FrameBox}" />
 
                         <RadioButton
                             BorderColor="White"
@@ -95,11 +73,7 @@
 
                 <!--#region Frame 1-->
                 <Frame
-                    Margin="0,10,0,0"
-                    Padding="0"
-                    CornerRadius="10"
-                    HeightRequest="100"
-                    WidthRequest="170">
+Style="{StaticResource FrameStyles}">
                     <Grid>
                         <Frame
                             Padding="0"
@@ -109,13 +83,7 @@
                         </Frame>
 
                         <BoxView
-                            BackgroundColor="Black"
-                            CornerRadius="10"
-                            HeightRequest="99"
-                            HorizontalOptions="FillAndExpand"
-                            Opacity="0.1"
-                            VerticalOptions="FillAndExpand"
-                            WidthRequest="157" />
+                            Style="{StaticResource FrameBox}"/>
 
                         <RadioButton
                             BorderColor="White"
@@ -128,11 +96,7 @@
 
                 <!--#region Frame 1-->
                 <Frame
-                    Margin="0,10,0,0"
-                    Padding="0"
-                    CornerRadius="10"
-                    HeightRequest="100"
-                    WidthRequest="170">
+                    Style="{StaticResource FrameStyles}">
                     <Grid>
                         <Frame
                             Padding="0"
@@ -142,13 +106,7 @@
                         </Frame>
 
                         <BoxView
-                            BackgroundColor="Black"
-                            CornerRadius="10"
-                            HeightRequest="99"
-                            HorizontalOptions="FillAndExpand"
-                            Opacity="0.1"
-                            VerticalOptions="FillAndExpand"
-                            WidthRequest="157" />
+                            Style="{StaticResource FrameBox}" />
 
                         <RadioButton
                             BorderColor="White"
@@ -161,11 +119,7 @@
 
                 <!--#region Frame 1-->
                 <Frame
-                    Margin="0,10,0,0"
-                    Padding="0"
-                    CornerRadius="10"
-                    HeightRequest="100"
-                    WidthRequest="170">
+                   Style="{StaticResource FrameStyles}">
                     <Grid>
                         <Frame
                             Padding="0"
@@ -175,13 +129,7 @@
                         </Frame>
 
                         <BoxView
-                            BackgroundColor="Black"
-                            CornerRadius="10"
-                            HeightRequest="99"
-                            HorizontalOptions="FillAndExpand"
-                            Opacity="0.1"
-                            VerticalOptions="FillAndExpand"
-                            WidthRequest="157" />
+                            Style="{StaticResource FrameBox}"/>
 
                         <RadioButton
                             BorderColor="White"
@@ -194,11 +142,7 @@
 
                 <!--#region Frame 1-->
                 <Frame
-                    Margin="0,10,0,0"
-                    Padding="0"
-                    CornerRadius="10"
-                    HeightRequest="100"
-                    WidthRequest="170">
+                    Style="{StaticResource FrameStyles}">
                     <Grid>
                         <Frame
                             Padding="0"
@@ -208,13 +152,7 @@
                         </Frame>
 
                         <BoxView
-                            BackgroundColor="Black"
-                            CornerRadius="10"
-                            HeightRequest="99"
-                            HorizontalOptions="FillAndExpand"
-                            Opacity="0.1"
-                            VerticalOptions="FillAndExpand"
-                            WidthRequest="157" />
+                            Style="{StaticResource FrameBox}"/>
 
                         <RadioButton
                             BorderColor="White"
@@ -227,11 +165,7 @@
 
                 <!--#region Frame 1-->
                 <Frame
-                    Margin="0,10,0,0"
-                    Padding="0"
-                    CornerRadius="10"
-                    HeightRequest="100"
-                    WidthRequest="170">
+                    Style="{StaticResource FrameStyles}">
                     <Grid>
                         <Frame
                             Padding="0"
@@ -241,13 +175,7 @@
                         </Frame>
 
                         <BoxView
-                            BackgroundColor="Black"
-                            CornerRadius="10"
-                            HeightRequest="99"
-                            HorizontalOptions="FillAndExpand"
-                            Opacity="0.1"
-                            VerticalOptions="FillAndExpand"
-                            WidthRequest="157" />
+                            Style="{StaticResource FrameBox}" />
 
                         <RadioButton
                             BorderColor="White"
@@ -260,11 +188,7 @@
 
                 <!--#region Frame 1-->
                 <Frame
-                    Margin="0,10,0,0"
-                    Padding="0"
-                    CornerRadius="10"
-                    HeightRequest="100"
-                    WidthRequest="170">
+                    Style="{StaticResource FrameStyles}">
                     <Grid>
                         <Frame
                             Padding="0"
@@ -274,13 +198,7 @@
                         </Frame>
 
                         <BoxView
-                            BackgroundColor="Black"
-                            CornerRadius="10"
-                            HeightRequest="99"
-                            HorizontalOptions="FillAndExpand"
-                            Opacity="0.1"
-                            VerticalOptions="FillAndExpand"
-                            WidthRequest="157" />
+                            Style="{StaticResource FrameBox}" />
 
                         <RadioButton
                             BorderColor="White"
@@ -327,7 +245,14 @@
                     Color="Black" />
             </HorizontalStackLayout>
 
-            <Button Text="save" FontFamily="mnewsbold" TextColor="White" WidthRequest="250" CornerRadius="15" Margin="15" BackgroundColor="Black"/>
+            <Button
+                Margin="15"
+                BackgroundColor="Black"
+                CornerRadius="15"
+                FontFamily="mnewsbold"
+                Text="save"
+                TextColor="White"
+                WidthRequest="250" />
             <!--#endregion-->
         </VerticalStackLayout>
     </ScrollView>
