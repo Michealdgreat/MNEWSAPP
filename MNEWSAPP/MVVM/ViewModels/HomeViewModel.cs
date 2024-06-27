@@ -9,24 +9,39 @@ using System.Runtime.CompilerServices;
 
 namespace MNEWSAPP.MVVM.ViewModels
 {
-    public partial class HomeViewModel : ObservableObject, INotifyPropertyChanged
+    public partial class HomeViewModel : ObservableObject
     {
         private readonly HttpClient _httpClient;
         private readonly string _baseUrl = "https://newsapi.org/v2/top-headlines?country=us&apiKey=";
 
         [ObservableProperty]
-        private ObservableCollection<ArticleModel>? news;
+        private ObservableCollection<ArticleModel> news;
+
+        [ObservableProperty]
+        private ObservableCollection<ArticleModel> topThreeNews;
+
+        [ObservableProperty]
+        private ObservableCollection<ArticleModel> selectFive;
+
+        [ObservableProperty]
+        private bool isDataLoading;
+
+        [ObservableProperty]
+        private bool isDataLoaded;
 
         public HomeViewModel()
         {
             _httpClient = new HttpClient();
             News = new ObservableCollection<ArticleModel>();
-            News.CollectionChanged += (s, e) => OnPropertyChanged(nameof(TopThreeNews));
-            News.CollectionChanged += (s, e) => OnPropertyChanged(nameof(SelectFive));
+            TopThreeNews = new ObservableCollection<ArticleModel>();
+            SelectFive = new ObservableCollection<ArticleModel>();
         }
 
         public async Task GetNews()
         {
+            IsDataLoading = true;
+            IsDataLoaded = false;
+
             var apiKey = await SecureStorage.GetAsync("apiKey");
             if (string.IsNullOrEmpty(apiKey))
             {
@@ -49,56 +64,52 @@ namespace MNEWSAPP.MVVM.ViewModels
                 var data = JsonConvert.DeserializeObject<ResponseModel>(responseString);
 
                 var filteredArticles = data?.Articles?.Where(article => !string.IsNullOrEmpty(article.UrlToImage)).ToList();
-
                 var filteredData = new ResponseModel { Articles = filteredArticles };
 
-
-                MainThread.BeginInvokeOnMainThread(async () =>
+                var processedArticles = await Task.Run(async () =>
                 {
-                    News?.Clear();
+                    var articles = new List<ArticleModel>();
                     if (filteredData?.Articles != null)
                     {
-                        foreach (var article in filteredData.Articles.Take(12))
+                        foreach (var article in filteredData.Articles.Take(6))
                         {
-
-
                             article.UrlToImage = await ImageCache.GetImageFromCacheAsync(article.UrlToImage);
-                            News?.Add(article);
-
+                            articles.Add(article);
                         }
                     }
+                    return articles;
+                });
+
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    News.Clear();
+                    foreach (var article in processedArticles)
+                    {
+                        News.Add(article);
+                    }
+
+                    UpdateTopThreeAndSelectFive();
+
+                    IsDataLoading = false;
+                    IsDataLoaded = true;
                 });
             }
         }
 
-        public ObservableCollection<ArticleModel> TopThreeNews
+        private void UpdateTopThreeAndSelectFive()
         {
-            get
+            TopThreeNews.Clear();
+            SelectFive.Clear();
+
+            foreach (var article in News.Take(1))
             {
-                return new ObservableCollection<ArticleModel>(News?.Take(1) ?? Enumerable.Empty<ArticleModel>());
+                TopThreeNews.Add(article);
             }
-        }
 
-        public ObservableCollection<ArticleModel> SelectFive
-        {
-            get
+            foreach (var article in News.Skip(1).Take(5))
             {
-                return new ObservableCollection<ArticleModel>(News?.Skip(2).Take(10) ?? Enumerable.Empty<ArticleModel>());
+                SelectFive.Add(article);
             }
-            set
-            {
-
-                SelectFive = value;
-                OnPropertyChanged();
-
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName] string? propName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
 
         private async Task SetApiKeyAsync(string apiKeyValue)
