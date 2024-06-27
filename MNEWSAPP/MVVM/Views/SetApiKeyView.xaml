@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MNEWSAPP.MVVM.Views.SetApiKeyView"
+             Title="SetApiKeyView" Padding="30">
+    <ContentPage.Background>
+
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStopCollection>
+                <GradientStop Offset="0.0" Color="#051937" />
+                <GradientStop Offset="0.25" Color="#004d7a" />
+                <GradientStop Offset="0.50" Color="#008793" />
+                <GradientStop Offset="0.75" Color="#00bf72" />
+                <GradientStop Offset="1" Color="#a8eb12" />
+            </GradientStopCollection>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <VerticalStackLayout VerticalOptions="Center">
+
+        <Label 
+            Text="Enter an API Key Below"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontAttributes="Bold"
+            FontFamily="mnewsbold"
+            Margin="0,-30,0,50"
+            FontSize="Body"/>
+        <Entry Placeholder="Paste your news api key here" TextColor="Black"/>
+        <Button Text="Continue" BackgroundColor="Black" CornerRadius="10" Margin="0,20,0,0" WidthRequest="200"/>
+    </VerticalStackLayout>
+</ContentPage>
