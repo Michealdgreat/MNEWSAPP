@@ -52,7 +52,12 @@ public partial class ArticleDetailsView : ContentPage
     private async void Button_Clicked_1(object sender, EventArgs e)
     {
 
-        await Shell.Current.GoToAsync("..");
+        var currentStack = Shell.Current.Navigation.NavigationStack;
+        System.Diagnostics.Debug.WriteLine($"Current Navigation Stack: {string.Join(", ", currentStack.Select(p => p.GetType().Name))}");
 
+        //await Shell.Current.GoToAsync("..");
+
+        await Shell.Current.GoToAsync("..");
     }
+
 }
