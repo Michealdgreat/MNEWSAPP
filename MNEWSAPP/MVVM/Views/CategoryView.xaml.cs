@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 namespace MNEWSAPP.MVVM.Views
 {
     [QueryProperty(nameof(ArticleModel), "data")]
-    public partial class CategoryView : ContentPage
+    public partial class CategoryView : ContentPage, INotifyPropertyChanged
     {
         private List<ArticleModel>? article;
 
