@@ -1,4 +1,5 @@
-﻿using MNEWSAPP.MVVM.Views;
+﻿using Microsoft.Maui.Controls;
+using MNEWSAPP.MVVM.Views;
 
 namespace MNEWSAPP
 {
@@ -8,10 +9,10 @@ namespace MNEWSAPP
         {
             InitializeComponent();
 
-            Routing.RegisterRoute("IndexPage", typeof(IndexPage));
-            Routing.RegisterRoute("ArticleDetailsView", typeof(ArticleDetailsView));
-            Routing.RegisterRoute("WebPageView", typeof(WebPageView));
-            Routing.RegisterRoute("CategoryView", typeof(CategoryView));
+            Routing.RegisterRoute(nameof(IndexPage), typeof(IndexPage));
+            Routing.RegisterRoute(nameof(ArticleDetailsView), typeof(ArticleDetailsView));
+            Routing.RegisterRoute(nameof(WebPageView), typeof(WebPageView));
+            Routing.RegisterRoute(nameof(CategoryView), typeof(CategoryView));
         }
     }
 }
