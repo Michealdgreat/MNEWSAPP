@@ -1,29 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MNEWSAPP.Service;
-
-public static class ImageCache
+namespace MNEWSAPP.Service
 {
-    private static readonly HttpClient _httpClient = new HttpClient();
-
-    public static async Task<string> GetImageFromCacheAsync(string? url)
+    public static class ImageCache
     {
-        var cacheDir = FileSystem.CacheDirectory;
-        var fileName = Path.Combine(cacheDir, Path.GetFileName(url));
+        private static readonly HttpClient _httpClient = new HttpClient();
 
-        if (File.Exists(fileName))
+        public static async Task<string> GetImageFromCacheAsync(string? url)
         {
-            return fileName;
+            if (string.IsNullOrEmpty(url))
+                throw new ArgumentException("URL cannot be null or empty.", nameof(url));
+
+            var cacheDir = FileSystem.CacheDirectory;
+            var fileName = GetHashedFileName(url);
+            var filePath = Path.Combine(cacheDir, fileName);
+
+            if (File.Exists(filePath))
+            {
+                return filePath;
+            }
+            else
+            {
+                var imageBytes = await _httpClient.GetByteArrayAsync(url);
+                await File.WriteAllBytesAsync(filePath, imageBytes);
+                return filePath;
+            }
         }
-        else
+
+        private static string GetHashedFileName(string url)
         {
-            var imageBytes = await _httpClient.GetByteArrayAsync(url);
-            File.WriteAllBytes(fileName, imageBytes);
-            return fileName;
+            using (var sha256 = SHA256.Create())
+            {
+                var hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(url));
+                var fileName = BitConverter.ToString(hash).Replace("-", "").ToLower();
+                return fileName;
+            }
         }
     }
 }
