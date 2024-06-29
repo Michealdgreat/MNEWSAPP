@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:MNEWSAPP.MVVM.ViewModels"
     Title="WebPageView">
 
+    
     <!--<ContentPage.BindingContext>
         <local:WebPageViewModel />
     </ContentPage.BindingContext>-->
