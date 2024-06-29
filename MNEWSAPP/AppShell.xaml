@@ -7,21 +7,39 @@
     xmlns:local="clr-namespace:MNEWSAPP.MVVM.Views"
     Title="MNEWSAPP"
     Shell.FlyoutBehavior="Disabled">
+    <Shell.TitleView>
+        <Grid>
+            <Grid ColumnDefinitions="*">
+                <Label
+                        FontFamily="poppinsblack"
+                        FontSize="Large"
+                        Text="MNEWS"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+            </Grid>
+        </Grid>
+    </Shell.TitleView>
 
-<!--#region OnDemand (When Navigated to)-->
+    <!--#region OnDemand (When Navigated to)-->
     <TabBar>
         <ShellContent
             Title="Home"
             ContentTemplate="{DataTemplate local:IndexPage}"
             Route="IndexPage" />
+        <ShellContent Title="Explore">
+            <ShellContent.Content>
+                <local:ExploreView />
+            </ShellContent.Content>
+        </ShellContent>
         <ShellContent
-            Title="Explore"
-            ContentTemplate="{DataTemplate local:ExploreView}"
-            Route="ExploreView" />
+    Title="SetApiKey"
+    ContentTemplate="{DataTemplate local:SetApiKeyView}"
+    Route="SetApiKeyView" />
     </TabBar>
-<!--#endregion-->
-    
-    <!--#region AT Start Up--><!--
+    <!--#endregion-->
+
+    <!--#region AT Start Up-->
+    <!--
     <TabBar>
         <ShellContent Title="Home">
             <ShellContent.Content>
@@ -34,7 +52,8 @@
                 <local:ExploreView />
             </ShellContent.Content>
         </ShellContent>
-        
-        --><!--#endregion-->
+
+    -->
+    <!--#endregion-->
 
 </Shell>
