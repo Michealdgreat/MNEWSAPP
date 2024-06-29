@@ -18,11 +18,7 @@ namespace MNEWSAPP.Service
         public async Task<ObservableCollection<ArticleModel>?> GetNewsAsync(string keyword)
         {
             var apiKey = await SecureStorage.GetAsync("apiKey");
-            if (string.IsNullOrEmpty(apiKey))
-            {
-                await SetApiKeyAsync("d9ab75985be34739a45d52acfc196efa");
-                apiKey = await SecureStorage.GetAsync("apiKey");
-            }
+
 
             if (string.IsNullOrEmpty(apiKey))
             {
