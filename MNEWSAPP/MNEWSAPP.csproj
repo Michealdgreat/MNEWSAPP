@@ -107,6 +107,7 @@
 		<None Remove="Resources\Images\google.jpg" />
 		<None Remove="Resources\Images\houseinvillage.jpeg" />
 		<None Remove="Resources\Images\Microsoft.jpg" />
+		<None Remove="Resources\Images\newsicon.jpg" />
 		<None Remove="Resources\Images\pexel1.jpeg" />
 		<None Remove="Resources\Images\pexel2.jpeg" />
 		<None Remove="Resources\Images\pexel3.jpeg" />

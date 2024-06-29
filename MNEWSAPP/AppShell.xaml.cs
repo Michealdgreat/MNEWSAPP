@@ -1,5 +1,7 @@
 ﻿using Microsoft.Maui.Controls;
+using CustomShellMaui;
 using MNEWSAPP.MVVM.Views;
+using CustomShellMaui.Enum;
 
 namespace MNEWSAPP
 {
@@ -9,10 +11,29 @@ namespace MNEWSAPP
         {
             InitializeComponent();
 
-            Routing.RegisterRoute(nameof(IndexPage), typeof(IndexPage));
+            //Routing.RegisterRoute(nameof(IndexPage), typeof(IndexPage));
             Routing.RegisterRoute(nameof(ArticleDetailsView), typeof(ArticleDetailsView));
             Routing.RegisterRoute(nameof(WebPageView), typeof(WebPageView));
             Routing.RegisterRoute(nameof(CategoryView), typeof(CategoryView));
+
+            this.CustomShellMaui(new CustomShellMaui.Models.Transitions
+            {
+                Root = new CustomShellMaui.Models.TransitionRoot
+                {
+                    CurrentPage = TransitionType.FadeOut,
+                    NextPage = TransitionType.LeftIn
+                },
+                Push = new CustomShellMaui.Models.Transition
+                {
+                    CurrentPage = TransitionType.FadeOut,
+                    NextPage = TransitionType.BottomIn
+                },
+                Pop = new CustomShellMaui.Models.Transition
+                {
+                    CurrentPage = TransitionType.BottomOut,
+                    NextPage = TransitionType.TopIn
+                }
+            });
         }
     }
 }

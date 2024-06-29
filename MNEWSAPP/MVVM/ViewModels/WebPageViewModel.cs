@@ -14,7 +14,7 @@ namespace MNEWSAPP.MVVM.ViewModels
 
         private async void OnBackButtonPressed()
         {
-            await Shell.Current.GoToAsync("//IndexPage");
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

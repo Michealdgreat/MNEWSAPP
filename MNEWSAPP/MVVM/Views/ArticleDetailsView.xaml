@@ -35,7 +35,7 @@
             Margin="20,0,0,0"
             CharacterSpacing="0.1"
             FontFamily="mnewsmwdium"
-            FontSize="Body"
+            FontSize="Medium"
             HorizontalOptions="CenterAndExpand"
             LineHeight="1.2"
             Text="{Binding Content}" />
@@ -45,9 +45,9 @@
             BackgroundColor="Black"
             Clicked="Button_Clicked"
             Text="Read More"
+            FontSize="Body"
+            FontFamily="mnewsbold"
             WidthRequest="200" />
-
-        <Button Text="Go Back" Margin="20" Clicked="Button_Clicked_1"/>
 
     </VerticalStackLayout>
 </ContentPage>

@@ -1,9 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Microsoft.Extensions.Configuration;
 using MNEWSAPP.MVVM.Models;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
-using System.Text.Json;
 
 namespace MNEWSAPP.Service
 {
@@ -12,14 +10,9 @@ namespace MNEWSAPP.Service
         private readonly HttpClient _httpClient;
         private readonly string _baseUrl = "https://newsapi.org/v2/everything?q=";
 
-        [ObservableProperty]
-        private ObservableCollection<ArticleModel>? news;
-
         public GetNews()
         {
             _httpClient = new HttpClient();
-            News = new ObservableCollection<ArticleModel>();
-
         }
 
         public async Task<ObservableCollection<ArticleModel>?> GetNewsAsync(string keyword)
@@ -48,31 +41,25 @@ namespace MNEWSAPP.Service
                 var filteredArticles = data?.Articles?.Where(article => !string.IsNullOrEmpty(article.UrlToImage)).ToList();
                 var filteredData = new ResponseModel { Articles = filteredArticles };
 
-                var processedArticles = await Task.Run(() =>
+                var processedArticles = await Task.Run(async () =>
                 {
                     var articles = new List<ArticleModel>();
                     if (filteredData?.Articles != null)
                     {
                         foreach (var article in filteredData.Articles.Take(6))
                         {
-                            //article.UrlToImage = await ImageCache.GetImageFromCacheAsync(article.UrlToImage);
+                            article.UrlToImage = await ImageCache.GetImageFromCacheAsync(article.UrlToImage);
                             articles.Add(article);
                         }
                     }
                     return articles;
                 });
 
-                foreach (var article in processedArticles)
-                {
-                    //article.UrlToImage = await ImageCache.GetImageFromCacheAsync(article.UrlToImage);
-                    News?.Add(article);
-                }
-
+                return new ObservableCollection<ArticleModel>(processedArticles);
             }
 
-            return News;
+            return new ObservableCollection<ArticleModel>();
         }
-
 
         private async Task SetApiKeyAsync(string apiKeyValue)
         {

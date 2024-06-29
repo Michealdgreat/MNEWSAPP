@@ -15,8 +15,11 @@ namespace MNEWSAPP.MVVM.Views
             get => article;
             set
             {
-                article = value;
-                OnPropertyChanged();
+                if (article != value)
+                {
+                    article = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
@@ -29,10 +32,8 @@ namespace MNEWSAPP.MVVM.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
+            ArticleModel?.Clear(); // Clear the articles list on appearing
         }
-
-
 
         private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
         {
@@ -40,9 +41,14 @@ namespace MNEWSAPP.MVVM.Views
             {
                 var navigationParameters = new Dictionary<string, object> { { "article", article } };
                 await Shell.Current.GoToAsync($"{nameof(ArticleDetailsView)}", navigationParameters);
-
-                //await Shell.Current.GoToAsync($"ArticleDetailsView", navigationParameters);
             }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

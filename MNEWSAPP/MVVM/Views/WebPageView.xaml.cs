@@ -26,4 +26,5 @@ public partial class WebPageView : ContentPage
         mnewsWebView.Source = Url;
     }
 
+
 }

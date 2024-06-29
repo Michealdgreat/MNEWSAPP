@@ -8,6 +8,7 @@
     xmlns:ui="clr-namespace:Xe.AcrylicView;assembly=Xe.AcrylicView"
     Title="MNews">
 
+
     <ScrollView Margin="4" VerticalScrollBarVisibility="Never">
         <VerticalStackLayout>
 
@@ -112,43 +113,43 @@
                         <Frame Style="{StaticResource BrowseBy}">
                             <Image Source="windows" />
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="WindowsTapped"/>
+                                <TapGestureRecognizer Tapped="WindowsTapped" />
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Style="{StaticResource BrowseBy}">
                             <Image Source="Apple" />
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="AppleTapped"/>
+                                <TapGestureRecognizer Tapped="AppleTapped" />
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Style="{StaticResource BrowseBy}">
                             <Image Source="google" />
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="GoogleTapped"/>
+                                <TapGestureRecognizer Tapped="GoogleTapped" />
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Style="{StaticResource BrowseBy}">
                             <Image Source="facebook" />
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="FacebokTapped"/>
+                                <TapGestureRecognizer Tapped="FacebokTapped" />
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Style="{StaticResource BrowseBy}">
                             <Image Source="xlogo" />
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="xLogoTapped"/>
+                                <TapGestureRecognizer Tapped="xLogoTapped" />
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Style="{StaticResource BrowseBy}">
                             <Image Source="amazon" />
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="AmazonTapped"/>
+                                <TapGestureRecognizer Tapped="AmazonTapped" />
                             </Frame.GestureRecognizers>
                         </Frame>
                         <Frame Style="{StaticResource BrowseBy}">
                             <Image Source="github" />
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="GithubTapped"/>
+                                <TapGestureRecognizer Tapped="GithubTapped" />
                             </Frame.GestureRecognizers>
                         </Frame>
                     </HorizontalStackLayout>

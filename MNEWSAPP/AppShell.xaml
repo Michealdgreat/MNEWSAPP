@@ -3,14 +3,38 @@
     x:Class="MNEWSAPP.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:acrylicView="clr-namespace:Xe.AcrylicView;assembly=Xe.AcrylicView"
     xmlns:local="clr-namespace:MNEWSAPP.MVVM.Views"
-    Shell.FlyoutBehavior="Disabled"
-    Title="MNEWSAPP">
+    Title="MNEWSAPP"
+    Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent Route="IndexPage" ContentTemplate="{DataTemplate local:IndexPage}" />
-    <ShellContent Route="ArticleDetailsView" ContentTemplate="{DataTemplate local:ArticleDetailsView}" />
-    <ShellContent Route="WebPageView" ContentTemplate="{DataTemplate local:WebPageView}" />
-    <ShellContent Route="CategoryView" ContentTemplate="{DataTemplate local:CategoryView}"/>
+<!--#region OnDemand (When Navigated to)-->
+    <TabBar>
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:IndexPage}"
+            Route="IndexPage" />
+        <ShellContent
+            Title="Explore"
+            ContentTemplate="{DataTemplate local:ExploreView}"
+            Route="ExploreView" />
+    </TabBar>
+<!--#endregion-->
+    
+    <!--#region AT Start Up--><!--
+    <TabBar>
+        <ShellContent Title="Home">
+            <ShellContent.Content>
+                <local:IndexPage />
+            </ShellContent.Content>
+        </ShellContent>
 
+        <ShellContent Title="Explore">
+            <ShellContent.Content>
+                <local:ExploreView />
+            </ShellContent.Content>
+        </ShellContent>
+        
+        --><!--#endregion-->
 
 </Shell>

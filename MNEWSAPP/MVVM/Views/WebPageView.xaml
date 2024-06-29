@@ -6,13 +6,13 @@
     xmlns:local="clr-namespace:MNEWSAPP.MVVM.ViewModels"
     Title="WebPageView">
 
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <local:WebPageViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
 
-    <Shell.BackButtonBehavior>
+    <!--<Shell.BackButtonBehavior>
         <BackButtonBehavior Command="{Binding BackCommand}" />
-    </Shell.BackButtonBehavior>
+    </Shell.BackButtonBehavior>-->
 
     <ScrollView>
         <VerticalStackLayout>

@@ -5,98 +5,72 @@ using MNEWSAPP.Service;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
-namespace MNEWSAPP.MVVM.Views;
-
-public partial class IndexPage : ContentPage
+namespace MNEWSAPP.MVVM.Views
 {
-    private HomeViewModel homeViewModel;
-
-    private GetNews _getnews = new();
-
-    public IndexPage()
+    public partial class IndexPage : ContentPage
     {
+        private HomeViewModel homeViewModel;
+        private GetNews _getnews;
 
-        InitializeComponent();
-        homeViewModel = new HomeViewModel();
-        BindingContext = homeViewModel;
-    }
-
-    protected override async void OnAppearing()
-    {
-        base.OnAppearing();
-        await homeViewModel.GetNews();
-    }
-
-    private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-    {
-        if (sender is Label label && label.BindingContext is ArticleModel article)
+        public IndexPage()
         {
-            var navigationParameters = new Dictionary<string, object> { { "article", article } };
-            await Shell.Current.GoToAsync($"{nameof(ArticleDetailsView)}", navigationParameters);
-
-            //await Shell.Current.GoToAsync($"ArticleDetailsView", navigationParameters);
+            _getnews = new GetNews();
+            InitializeComponent();
+            homeViewModel = new HomeViewModel();
+            BindingContext = homeViewModel;
         }
-    }
 
-    private async void FraturedSectionTapped(object sender, TappedEventArgs e)
-    {
-        if (sender is Label label && label.BindingContext is ArticleModel article)
+        protected override async void OnAppearing()
         {
-            var navigationParameters = new Dictionary<string, object> { { "article", article } };
-            await Shell.Current.GoToAsync($"{nameof(ArticleDetailsView)}", navigationParameters);
-
-            //await Shell.Current.GoToAsync($"ArticleDetailsView", navigationParameters);
+            base.OnAppearing();
+            await homeViewModel.GetNews();
         }
-    }
 
-    private async void WindowsTapped(object sender, TappedEventArgs e)
-    {
-        List<ArticleModel> articleModel = new();
-
-        var data = await _getnews.GetNewsAsync("Microsoft");
-        if (data != null)
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            foreach (var item in data)
+            if (sender is Label label && label.BindingContext is ArticleModel article)
             {
-                articleModel.Add(item);
+                var navigationParameters = new Dictionary<string, object> { { "article", article } };
+                await Shell.Current.GoToAsync($"{nameof(ArticleDetailsView)}", navigationParameters);
             }
         }
 
-        var navigationParameters = new Dictionary<string, object>
+        private async void FraturedSectionTapped(object sender, TappedEventArgs e)
         {
-            {"data",articleModel }
-        };
+            if (sender is Label label && label.BindingContext is ArticleModel article)
+            {
+                var navigationParameters = new Dictionary<string, object> { { "article", article } };
+                await Shell.Current.GoToAsync($"{nameof(ArticleDetailsView)}", navigationParameters);
+            }
+        }
 
-        await Shell.Current.GoToAsync("CategoryView", navigationParameters);
-    }
+        private async Task CategoryTapped(object sender, TappedEventArgs e, string category)
+        {
+            List<ArticleModel> articleModel = new();
 
-    private void AppleTapped(object sender, TappedEventArgs e)
-    {
+            var data = await _getnews.GetNewsAsync(category);
+            if (data != null)
+            {
+                foreach (var item in data)
+                {
+                    articleModel.Add(item);
+                }
+            }
 
-    }
+            var navigationParameters = new Dictionary<string, object>
+            {
+                { "data", articleModel }
+            };
 
-    private void GoogleTapped(object sender, TappedEventArgs e)
-    {
+            await Shell.Current.GoToAsync("CategoryView", navigationParameters);
+        }
 
-    }
-
-    private void FacebokTapped(object sender, TappedEventArgs e)
-    {
-
-    }
-
-    private void xLogoTapped(object sender, TappedEventArgs e)
-    {
-
-    }
-
-    private void AmazonTapped(object sender, TappedEventArgs e)
-    {
-
-    }
-
-    private void GithubTapped(object sender, TappedEventArgs e)
-    {
-
+        private async void WindowsTapped(object sender, TappedEventArgs e) => await CategoryTapped(sender, e, "Microsoft");
+        private async void AppleTapped(object sender, TappedEventArgs e) => await CategoryTapped(sender, e, "Apple");
+        private async void GoogleTapped(object sender, TappedEventArgs e) => await CategoryTapped(sender, e, "Google");
+        private async void FacebokTapped(object sender, TappedEventArgs e) => await CategoryTapped(sender, e, "Facebook");
+        private async void xLogoTapped(object sender, TappedEventArgs e) => await CategoryTapped(sender, e, "twitter");
+        private async void AmazonTapped(object sender, TappedEventArgs e) => await CategoryTapped(sender, e, "Amazon");
+        private async void GithubTapped(object sender, TappedEventArgs e) => await CategoryTapped(sender, e, "developer");
     }
 }
