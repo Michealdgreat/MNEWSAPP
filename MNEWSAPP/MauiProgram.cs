@@ -5,7 +5,6 @@ using MNEWSAPP.Service;
 using MNEWSAPP.MVVM.Views;
 using Xe.AcrylicView;
 using CustomShellMaui;
-using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace MNEWSAPP
 {
@@ -21,7 +20,6 @@ namespace MNEWSAPP
                 .UseMauiCommunityToolkit()
                 .UseAcrylicView()
                 .UseCustomShellMaui()
-                .UseSkiaSharp()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -39,11 +37,14 @@ namespace MNEWSAPP
 
                 });
 
-            // Register services and view models with DI
-            //builder.Services.AddSingleton(configuration); // Add configuration to the DI container
-            builder.Services.AddSingleton<HomeViewModel>();
+         
+            builder.Services.AddTransient<HomeViewModel>();
             builder.Services.AddSingleton<GetNews>();
-            builder.Services.AddTransient<HomeView>(); // Register HomeView as a transient service
+            builder.Services.AddTransient<ApiKeyService>();
+            builder.Services.AddTransient<IndexPage>();
+            builder.Services.AddTransient<IndexPage>();
+            builder.Services.AddSingleton<SetApiKeyView>();
+            builder.Services.AddTransient<ExploreView>();
 
 #if DEBUG
             builder.Logging.AddDebug();

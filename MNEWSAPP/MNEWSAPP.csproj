@@ -49,6 +49,9 @@
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+		<MauiImage Update="Resources\Images\settingssvg.svg" Resize="True" BaseSize="300,185" />
+		<MauiImage Update="Resources\Images\boltsvg.svg" Resize="True" BaseSize="300,185" />
+		<MauiImage Update="Resources\Images\homesvg.svg" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -99,12 +102,14 @@
 		<None Remove="Resources\Fonts\source-serif-pro.semibold.ttf" />
 		<None Remove="Resources\Images\amazon.jpg" />
 		<None Remove="Resources\Images\apple.jpg" />
+		<None Remove="Resources\Images\boltsvg.svg" />
 		<None Remove="Resources\Images\canoe.jpeg" />
 		<None Remove="Resources\Images\chatgpt.jpg" />
 		<None Remove="Resources\Images\facebook.jpg" />
 		<None Remove="Resources\Images\football.jpeg" />
 		<None Remove="Resources\Images\github.jpg" />
 		<None Remove="Resources\Images\google.jpg" />
+		<None Remove="Resources\Images\homesvg.svg" />
 		<None Remove="Resources\Images\houseinvillage.jpeg" />
 		<None Remove="Resources\Images\Microsoft.jpg" />
 		<None Remove="Resources\Images\mnewsloading.gif" />
@@ -114,6 +119,7 @@
 		<None Remove="Resources\Images\pexel3.jpeg" />
 		<None Remove="Resources\Images\reddit.jpg" />
 		<None Remove="Resources\Images\rockyhills.jpeg" />
+		<None Remove="Resources\Images\settingssvg.svg" />
 		<None Remove="Resources\Images\stackoverflow.jpg" />
 		<None Remove="Resources\Images\tropical.jpg" />
 		<None Remove="Resources\Images\whitehouse.jpeg" />
@@ -135,42 +141,36 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.60" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.60" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0-preview.5.24306.7" />
+		<PackageReference Include="Microsoft.Maui.Graphics.Skia" Version="9.0.0-preview.5.24307.10" />
 		<PackageReference Include="Microsoft.Maui.Resizetizer" Version="8.0.60" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="SimpleToolkit.SimpleShell" Version="4.1.3" />
-		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<MauiXaml Update="MVVM\Views\ArticleDetailsView.xaml">
-		  <Generator>MSBuild:Compile</Generator>
+			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\CategoryView.xaml">
-		  <Generator>MSBuild:Compile</Generator>
+			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\ExploreView.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="MVVM\Views\HomeSkeleton.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="MVVM\Views\HomeView.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\IndexPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\InterestView.xaml">
-		  <Generator>MSBuild:Compile</Generator>
+			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\SetApiKeyView.xaml">
-		  <Generator>MSBuild:Compile</Generator>
+			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\WebPageView.xaml">
-		  <Generator>MSBuild:Compile</Generator>
+			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="Resources\Styles\mnews.xaml">
-		  <Generator>MSBuild:Compile</Generator>
+			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 	</ItemGroup>
 

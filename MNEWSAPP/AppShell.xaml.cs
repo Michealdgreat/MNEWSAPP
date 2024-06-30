@@ -25,13 +25,13 @@ namespace MNEWSAPP
                 },
                 Push = new CustomShellMaui.Models.Transition
                 {
-                    CurrentPage = TransitionType.FadeOut,
+                    CurrentPage = TransitionType.TopOut,
                     NextPage = TransitionType.BottomIn
                 },
                 Pop = new CustomShellMaui.Models.Transition
                 {
-                    CurrentPage = TransitionType.BottomOut,
-                    NextPage = TransitionType.TopIn
+                    CurrentPage = TransitionType.RightOut,
+                    NextPage = TransitionType.LeftIn
                 }
             });
         }
