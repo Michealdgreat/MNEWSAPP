@@ -2,10 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using Newtonsoft.Json;
 using MNEWSAPP.MVVM.Models;
-using System.Threading.Tasks;
 using MNEWSAPP.Service;
-using System.Linq;
-using System;
 
 namespace MNEWSAPP.MVVM.ViewModels
 {
@@ -39,6 +36,8 @@ namespace MNEWSAPP.MVVM.ViewModels
 
         public async Task GetNews()
         {
+            if (IsDataLoaded) return;
+
             IsDataLoading = true;
             IsDataLoaded = false;
 
@@ -115,30 +114,6 @@ namespace MNEWSAPP.MVVM.ViewModels
         private async Task SetApiKeyAsync(string apiKeyValue)
         {
             await SecureStorage.SetAsync("apiKey", apiKeyValue);
-        }
-
-        public string SaveState()
-        {
-            var state = new
-            {
-                News,
-                TopThreeNews,
-                SelectFive,
-                IsDataLoaded
-            };
-            return JsonConvert.SerializeObject(state);
-        }
-
-        public void RestoreState(string stateJson)
-        {
-            var state = JsonConvert.DeserializeObject<dynamic>(stateJson);
-            if (state != null)
-            {
-                News = JsonConvert.DeserializeObject<ObservableCollection<ArticleModel>>(Convert.ToString(state.News));
-                TopThreeNews = JsonConvert.DeserializeObject<ObservableCollection<ArticleModel>>(Convert.ToString(state.TopThreeNews));
-                SelectFive = JsonConvert.DeserializeObject<ObservableCollection<ArticleModel>>(Convert.ToString(state.SelectFive));
-                IsDataLoaded = state.IsDataLoaded;
-            }
         }
     }
 }
