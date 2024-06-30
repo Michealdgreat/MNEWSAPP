@@ -5,51 +5,66 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="CategoryView"
     Padding="20">
-    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
-        <VerticalStackLayout BindableLayout.ItemsSource="{Binding ArticleModel}">
-            <BindableLayout.ItemTemplate>
-                <DataTemplate>
-                    <Grid ColumnDefinitions=".8*,.2*" RowDefinitions=".9*,.1*" ColumnSpacing="5">
 
-                        <Label
-                            Margin="9,10,0,0"
-                            FontFamily="mnewsbold"
-                            FontSize="Body"
-                            LineHeight="1"
-                            Text="{Binding Title}">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                        <Frame
-                            Grid.Column="1"
-                            Margin="0,10,0,10"
-                            Padding="0"
-                            BorderColor="Black"
-                            CornerRadius="10"
-                            
-                            >
+    <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+        <VerticalStackLayout>
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding TakeOne}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Image Source="{Binding UrlToImage}" />
+                            <Label Text="{Binding Title}" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding ArticleModel}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            ColumnDefinitions=".8*,.2*"
+                            ColumnSpacing="5"
+                            RowDefinitions=".9*,.1*">
+
+                            <Label
+                                Margin="9,10,0,0"
+                                FontFamily="mnewsbold"
+                                FontSize="Body"
+                                LineHeight="1"
+                                Text="{Binding Title}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
                             <Image
                                 Grid.RowSpan="2"
+                                Grid.Column="1"
+                                Margin="0,10,0,10"
                                 Aspect="AspectFit"
                                 HorizontalOptions="End"
-                                Source="newsicon"
+                                Source="boltsvg"
                                 VerticalOptions="Center" />
-                        </Frame>
 
 
-                        <BoxView
-                            Grid.Row="1"
-                            Grid.ColumnSpan="2"
-                            Margin="0,10,0,0"
-                            HeightRequest="1"
-                           
-                            Color="LightGrey" />
-                    </Grid>
 
-                </DataTemplate>
-            </BindableLayout.ItemTemplate>
+                            <BoxView
+                                Grid.Row="1"
+                                Grid.ColumnSpan="2"
+                                Margin="0,10,0,0"
+                                HeightRequest="1"
+                                Color="LightGrey" />
+                        </Grid>
+
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
         </VerticalStackLayout>
+
+
+
+
     </ScrollView>
 
 </ContentPage>

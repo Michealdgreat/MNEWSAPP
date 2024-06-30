@@ -8,6 +8,7 @@ namespace MNEWSAPP.MVVM.Views
     public partial class CategoryView : ContentPage, INotifyPropertyChanged
     {
         private List<ArticleModel>? article;
+        private List<ArticleModel>? takeone;
 
         public List<ArticleModel>? ArticleModel
         {
@@ -22,16 +23,42 @@ namespace MNEWSAPP.MVVM.Views
             }
         }
 
+        public List<ArticleModel>? TakeOne
+        {
+            get => takeone;
+            set
+            {
+                if (takeone != value)
+                {
+                    takeone = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public CategoryView()
         {
             InitializeComponent();
+            takeone = [];
             BindingContext = this;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            ArticleModel?.Clear(); // Clear the articles list on appearing
+            GetOne();
+        }
+
+        private void GetOne()
+        {
+            TakeOne?.Clear();
+            if (ArticleModel != null)
+            {
+                foreach (var item in ArticleModel.Take(1))
+                {
+                    TakeOne?.Add(item);
+                }
+            }
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
