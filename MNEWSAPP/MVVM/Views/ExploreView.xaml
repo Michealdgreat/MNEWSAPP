@@ -3,8 +3,12 @@
     x:Class="MNEWSAPP.MVVM.Views.ExploreView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="ExploreView">
-    <ScrollView Padding="20">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="White" StatusBarStyle="LightContent" />
+    </ContentPage.Behaviors>
+    <ScrollView Padding="30">
         <VerticalStackLayout>
             <!--#region POPULAR TAGS-->
             <Grid
@@ -18,133 +22,109 @@
                     Text="Popular Tags" />
                 <Label
                     Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontFamily="mnewsbold"
                     HorizontalOptions="End"
                     HorizontalTextAlignment="End"
                     Text="view all"
-                    FontFamily="mnewsbold"
-                    FontAttributes="Bold"
-                       TextColor="#F98121"
+                    TextColor="#F98121"
                     VerticalOptions="Center" />
             </Grid>
 
             <FlexLayout Margin="5,0,5,20" Wrap="Wrap">
-                <Frame
-                    Margin="2"
-                    Padding="0"
-                    BackgroundColor="#F9F9F9"
-                    BorderColor="#F9F9F9"
-                    CornerRadius="5">
+                <Frame Style="{StaticResource popularFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MIcrosoftTapped"/>
+                    </Frame.GestureRecognizers>
                     <Label
-                        Margin="3"
-                        FontSize="Small"
+                        Style="{StaticResource popularframelabel}"
                         Text="#Microsoft" />
                 </Frame>
 
-                <Frame
-                    Margin="2"
-                    Padding="0"
-                    BackgroundColor="#F9F9F9"
-                    BorderColor="#F9F9F9"
-                    CornerRadius="5">
+                <Frame Style="{StaticResource popularFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AppleTapped"/>
+                    </Frame.GestureRecognizers>
                     <Label
-                        Margin="3"
-                        FontSize="Small"
+                        Style="{StaticResource popularframelabel}"
                         Text="#Apple" />
                 </Frame>
 
-                <Frame
-                    Margin="2"
-                    Padding="0"
-                    BackgroundColor="#F9F9F9"
-                    BorderColor="#F9F9F9"
-                    CornerRadius="5">
+                <Frame Style="{StaticResource popularFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MetaTapped"/>
+                    </Frame.GestureRecognizers>
                     <Label
-                        Margin="3"
-                        FontSize="Small"
+                        Style="{StaticResource popularframelabel}"
                         Text="#Meta" />
                 </Frame>
 
-                <Frame
-                    Margin="2"
-                    Padding="0"
-                    BackgroundColor="#F9F9F9"
-                    BorderColor="#F9F9F9"
-                    CornerRadius="5">
+                <Frame Style="{StaticResource popularFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AITapped"/>
+                    </Frame.GestureRecognizers>
                     <Label
-                        Margin="3"
-                        FontSize="Small"
+                        Style="{StaticResource popularframelabel}"
                         Text="#AI" />
                 </Frame>
 
-                <Frame
-                    Margin="2"
-                    Padding="0"
-                    BackgroundColor="#F9F9F9"
-                    BorderColor="#F9F9F9"
-                    CornerRadius="5">
+                <Frame Style="{StaticResource popularFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="VideosTapped"/>
+                    </Frame.GestureRecognizers>
                     <Label
-                        Margin="3"
-                        FontSize="Small"
+                        Style="{StaticResource popularframelabel}"
                         Text="#Videos" />
                 </Frame>
 
-                <Frame
-                    Margin="2"
-                    Padding="0"
-                    BackgroundColor="#F9F9F9"
-                    BorderColor="#F9F9F9"
-                    CornerRadius="5">
+                <Frame Style="{StaticResource popularFrame}">
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ENtertainmentTapped"/>
+                    </Frame.GestureRecognizers>
+
                     <Label
-                        Margin="3"
-                        FontSize="Small"
+                        Style="{StaticResource popularframelabel}"
                         Text="#Entertainment" />
                 </Frame>
 
-                <Frame
-                    Margin="2"
-                    Padding="0"
-                    BackgroundColor="#F9F9F9"
-                    BorderColor="#F9F9F9"
-                    CornerRadius="5">
+                <Frame Style="{StaticResource popularFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TiktokTapped"/>
+                    </Frame.GestureRecognizers>
+
                     <Label
-                        Margin="3"
-                        FontSize="Small"
+                        Style="{StaticResource popularframelabel}"
                         Text="#Tiktok" />
                 </Frame>
 
-                <Frame
-                    Margin="2"
-                    Padding="0"
-                    BackgroundColor="#F9F9F9"
-                    BorderColor="#F9F9F9"
-                    CornerRadius="5">
+                <Frame Style="{StaticResource popularFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SPortTapped"/>
+                    </Frame.GestureRecognizers>
+
                     <Label
-                        Margin="3"
-                        FontSize="Small"
-                        Text="#Finland" />
+                        Style="{StaticResource popularframelabel}"
+                        Text="#Sport" />
                 </Frame>
 
-                <Frame
-                    Margin="2"
-                    Padding="0"
-                    BackgroundColor="#F9F9F9"
-                    BorderColor="#F9F9F9"
-                    CornerRadius="5">
+                <Frame Style="{StaticResource popularFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="VideosTapped"/>
+                    </Frame.GestureRecognizers>
+
                     <Label
-                        Margin="3"
-                        FontSize="Small"
+                        Style="{StaticResource popularframelabel}"
                         Text="#MondayMorning" />
                 </Frame>
 
-                <Frame
-                    Margin="2"
-                    Padding="0"
-                    BackgroundColor="#F9F9F9"
-                    BorderColor="#F9F9F9"
-                    CornerRadius="5">
+                <Frame Style="{StaticResource popularFrame}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BusinessTapped"/>
+                    </Frame.GestureRecognizers>
+
                     <Label
-                        Margin="3"
-                        FontSize="Small"
+                        Style="{StaticResource popularframelabel}"
                         Text="#Business" />
                 </Frame>
 
@@ -159,18 +139,17 @@
                 ColumnDefinitions=".5*,.5*"
                 RowDefinitions="1*">
                 <Label
-                    
                     FontFamily="poppinsbold"
                     FontSize="Body"
                     HorizontalOptions="Start"
                     Text="Latest News" />
                 <Label
                     Grid.Column="1"
+                    FontFamily="mnewsbold"
                     HorizontalOptions="End"
-                    TextColor="#F98121"
-FontFamily="mnewsbold"
                     HorizontalTextAlignment="End"
                     Text="view all"
+                    TextColor="#F98121"
                     VerticalOptions="Center" />
             </Grid>
 
@@ -193,7 +172,8 @@ FontFamily="mnewsbold"
                         </Frame>
                         <Label
                             Margin="0,5,0,0"
-                            FontSize="Caption"
+                            FontSize="Default"
+                            FontFamily="mnewsmedium"
                             Text="Climate change: Arctic warming linked to colder winters" />
                     </VerticalStackLayout>
 
@@ -206,7 +186,8 @@ FontFamily="mnewsbold"
                         </Frame>
                         <Label
                             Margin="0,5,0,0"
-                            FontSize="Caption"
+                            FontSize="Default"
+                            FontFamily="mnewsmedium"
                             Text="Climate change: Arctic warming linked to colder winters" />
                     </VerticalStackLayout>
 
@@ -231,23 +212,21 @@ FontFamily="mnewsbold"
             <BoxView HeightRequest="2" Color="#F2F2F2" />
 
             <!--#region RECOMMENDATION-->
-            <Grid
-                Margin="0,15,0,10"
-                ColumnDefinitions=".5*,.5*">
+            <Grid Margin="0,15,0,10" ColumnDefinitions=".5*,.5*">
                 <Label
                     FontAttributes="Bold"
                     FontFamily="poppinsbold"
                     FontSize="Body"
-                    VerticalOptions="End"
                     HorizontalOptions="Start"
-                    Text="Recommendations" />
+                    Text="Recommendations"
+                    VerticalOptions="End" />
                 <Label
                     Grid.Column="1"
+                    FontFamily="mnewsbold"
                     HorizontalOptions="End"
                     HorizontalTextAlignment="End"
-                    TextColor="#F98121"
-                    FontFamily="mnewsbold"
                     Text="view all"
+                    TextColor="#F98121"
                     VerticalOptions="Center" />
             </Grid>
 
@@ -255,12 +234,13 @@ FontFamily="mnewsbold"
                 <VerticalStackLayout>
                     <Label
                         Margin="0,0,0,10"
-                        FontSize="Small"
+                        FontSize="Default"
+                        FontFamily="mnewsmedium"
                         Text="US jobs growth disappoints as recovery falters" />
                     <HorizontalStackLayout>
-                        <Label FontSize="Micro" Text="Nature Channel" />
+                        <Label FontSize="Micro" Text="Nature Channel"  TextColor="#F98121"/>
                         <Label FontSize="Micro" Text="  " />
-                        <Label FontSize="Micro" Text="4mins ago" />
+                        <Label FontSize="Micro" Text="4mins ago"/>
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
 
