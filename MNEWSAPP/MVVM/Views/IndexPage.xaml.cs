@@ -2,7 +2,9 @@ using CommunityToolkit.Maui.Core.Extensions;
 using MNEWSAPP.MVVM.Models;
 using MNEWSAPP.MVVM.ViewModels;
 using MNEWSAPP.Service;
+using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
+using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace MNEWSAPP.MVVM.Views
@@ -11,6 +13,7 @@ namespace MNEWSAPP.MVVM.Views
     {
         private HomeViewModel homeViewModel;
         private GetNews _getnews;
+        private const string HomeViewModelStateKey = "HomeViewModelState";
 
         public IndexPage()
         {
@@ -23,7 +26,30 @@ namespace MNEWSAPP.MVVM.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await homeViewModel.GetNews();
+
+            var savedState = Preferences.Get(HomeViewModelStateKey, string.Empty);
+            if (!string.IsNullOrEmpty(savedState))
+            {
+                Debug.WriteLine("Restoring state...");
+                homeViewModel.RestoreState(savedState);
+            }
+            else
+            {
+                Debug.WriteLine("No state found, fetching new data...");
+                HideAll();
+                loadingIndicator.IsVisible = true;
+                await homeViewModel.GetNews();
+                ViewAll();
+            }
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            var stateJson = homeViewModel.SaveState();
+            Preferences.Set(HomeViewModelStateKey, stateJson);
+            Debug.WriteLine("State saved.");
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -72,5 +98,22 @@ namespace MNEWSAPP.MVVM.Views
         private async void xLogoTapped(object sender, TappedEventArgs e) => await CategoryTapped(sender, e, "twitter");
         private async void AmazonTapped(object sender, TappedEventArgs e) => await CategoryTapped(sender, e, "Amazon");
         private async void GithubTapped(object sender, TappedEventArgs e) => await CategoryTapped(sender, e, "developer");
+
+        private void HideAll()
+        {
+            mainPageContent1.IsVisible = false;
+            mainPageContent2.IsVisible = false;
+            mainPageContent3.IsVisible = false;
+            BrowseBy.IsVisible = false;
+        }
+
+        private void ViewAll()
+        {
+            loadingIndicator.IsVisible = false;
+            mainPageContent1.IsVisible = true;
+            BrowseBy.IsVisible = true;
+            mainPageContent2.IsVisible = true;
+            mainPageContent3.IsVisible = true;
+        }
     }
 }

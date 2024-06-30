@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MNEWSAPP.MVVM.Views"
+    xmlns:skiaforjson="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:ui="clr-namespace:Xe.AcrylicView;assembly=Xe.AcrylicView"
     Title="MNews">
@@ -12,8 +13,10 @@
     <ScrollView Margin="4" VerticalScrollBarVisibility="Never">
         <VerticalStackLayout>
 
+
+
             <!--#region Top Featured Section-->
-            <VerticalStackLayout BindableLayout.ItemsSource="{Binding TopThreeNews}">
+            <VerticalStackLayout x:Name="mainPageContent1" BindableLayout.ItemsSource="{Binding TopThreeNews}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <Frame
@@ -66,6 +69,7 @@
                                         VerticalOptions="End" />
                                 </Grid>
                             </StackLayout>
+
                         </Frame>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
@@ -76,7 +80,7 @@
             <!--#endregion-->
 
             <!--#region BrowseBy Section-->
-            <VerticalStackLayout>
+            <VerticalStackLayout x:Name="mainPageContent2">
                 <Label
                     Margin="20"
                     FontFamily="mnewsbold"
@@ -158,7 +162,7 @@
             <!--#endregion-->
 
             <!--#region Browese By Section-->
-            <VerticalStackLayout>
+            <VerticalStackLayout x:Name="mainPageContent3">
                 <Label
                     Margin="20,25,0,0"
                     FontFamily="mnewsbold"
@@ -169,6 +173,8 @@
                     HeightRequest="2"
                     VerticalOptions="Start"
                     Color="LightGray" />
+
+                <skiaforjson:SKLottieView RepeatCount="-1" Source="animation2.json" />
             </VerticalStackLayout>
 
 
@@ -216,6 +222,20 @@
 
             <!--#endregion-->
 
+
+
+            <VerticalStackLayout x:Name="loadingIndicator" VerticalOptions="Center">
+
+                <ActivityIndicator IsRunning="True" />
+                <skiaforjson:SKLottieView RepeatCount="-1" Source="barsloadinganimation" />
+
+            </VerticalStackLayout>
+
+
+
         </VerticalStackLayout>
+
+
+
     </ScrollView>
 </ContentPage>
