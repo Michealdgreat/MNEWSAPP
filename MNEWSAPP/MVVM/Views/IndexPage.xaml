@@ -4,16 +4,14 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MNEWSAPP.MVVM.Views"
-    xmlns:skiaforjson="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:ui="clr-namespace:Xe.AcrylicView;assembly=Xe.AcrylicView"
     Title="MNews">
-
-
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="Black" StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
     <ScrollView Margin="4" VerticalScrollBarVisibility="Never">
         <VerticalStackLayout>
-
-
 
             <!--#region Top Featured Section-->
             <VerticalStackLayout x:Name="mainPageContent1" BindableLayout.ItemsSource="{Binding TopThreeNews}">
@@ -86,33 +84,8 @@
                     FontFamily="mnewsbold"
                     FontSize="Medium"
                     Text="Browse By" />
-                <!--<CollectionView
-                    Margin="20,0,0,0"
-                    HorizontalScrollBarVisibility="Never"
-                    ItemsLayout="HorizontalList"
-                    ItemsSource="{Binding News}"
-                    VerticalScrollBarVisibility="Never">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Frame
-                                Margin="10,0,20,0"
-                                Padding="20"
-                                CornerRadius="50"
-                                FlowDirection="LeftToRight"
-                                HasShadow="True"
-                                HeightRequest="50"
-                                Opacity="100"
-                                WidthRequest="50">
-                                <Image
-                                    Aspect="AspectFill"
-                                    HeightRequest="50"
-                                    Source="{Binding UrlToImage}"
-                                    WidthRequest="50" />
-                            </Frame>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>-->
-                <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal">
+
+                <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Margin="20,0,20,0">
                     <HorizontalStackLayout>
                         <Frame Style="{StaticResource BrowseBy}">
                             <Image Source="windows" />
@@ -173,8 +146,6 @@
                     HeightRequest="2"
                     VerticalOptions="Start"
                     Color="LightGray" />
-
-                <skiaforjson:SKLottieView RepeatCount="-1" Source="animation2.json" />
             </VerticalStackLayout>
 
 
@@ -222,16 +193,7 @@
 
             <!--#endregion-->
 
-
-
-            <VerticalStackLayout x:Name="loadingIndicator" VerticalOptions="Center">
-
-                <ActivityIndicator IsRunning="True" />
-                <skiaforjson:SKLottieView RepeatCount="-1" Source="barsloadinganimation" />
-
-            </VerticalStackLayout>
-
-
+            <Image x:Name="loadingIndicator" Source="mnewsloading.gif" IsAnimationPlaying="True" HeightRequest="100" VerticalOptions="Center" HorizontalOptions="Center"/>
 
         </VerticalStackLayout>
 

@@ -4,10 +4,10 @@ namespace MNEWSAPP.MVVM.Views
 {
     public partial class SetApiKeyView : ContentPage
     {
-        private readonly ApiKeyService apiKeyService;
-        public SetApiKeyView()
+        private readonly ApiKeyService _apiKeyService;
+        public SetApiKeyView(ApiKeyService apiKeyService)
         {
-            apiKeyService = new ApiKeyService();
+            _apiKeyService = apiKeyService;
             InitializeComponent();
         }
 
@@ -22,11 +22,17 @@ namespace MNEWSAPP.MVVM.Views
                 await DisplayAlert("Error", "Please enter a valid API key.", "OK");
                 return;
             }
-            await apiKeyService.SetApiKey(apiKey);
+            await _apiKeyService.SetApiKey(apiKey);
             await DisplayAlert("Success", "API key has been saved.", "OK");
 
 
             await Shell.Current.GoToAsync("//IndexPage");
+        }
+
+        public async void CheckApiKey()
+        {
+            await DisplayAlert("Error", "API key Not Set!", "OK");
+            return;
         }
     }
 }
