@@ -37,7 +37,7 @@ namespace MNEWSAPP
 
                 });
 
-         
+
             builder.Services.AddTransient<HomeViewModel>();
             builder.Services.AddSingleton<GetNews>();
             builder.Services.AddTransient<ApiKeyService>();
@@ -45,6 +45,7 @@ namespace MNEWSAPP
             builder.Services.AddTransient<IndexPage>();
             builder.Services.AddSingleton<SetApiKeyView>();
             builder.Services.AddTransient<ExploreView>();
+            builder.Services.AddTransient<SearchView>();
 
 #if DEBUG
             builder.Logging.AddDebug();

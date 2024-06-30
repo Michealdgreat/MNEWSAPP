@@ -41,10 +41,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\mnewssplash.svg" Color="#FFF" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\mnewssplash.svg" Color="#FFF" BaseSize="108,108" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -52,6 +52,7 @@
 		<MauiImage Update="Resources\Images\settingssvg.svg" Resize="True" BaseSize="300,185" />
 		<MauiImage Update="Resources\Images\boltsvg.svg" Resize="True" BaseSize="300,185" />
 		<MauiImage Update="Resources\Images\homesvg.svg" Resize="True" BaseSize="300,185" />
+		<MauiImage Update="Resources\Images\searchsvg.svg" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -119,6 +120,7 @@
 		<None Remove="Resources\Images\pexel3.jpeg" />
 		<None Remove="Resources\Images\reddit.jpg" />
 		<None Remove="Resources\Images\rockyhills.jpeg" />
+		<None Remove="Resources\Images\searchsvg.svg" />
 		<None Remove="Resources\Images\settingssvg.svg" />
 		<None Remove="Resources\Images\stackoverflow.jpg" />
 		<None Remove="Resources\Images\tropical.jpg" />
@@ -161,6 +163,9 @@
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\InterestView.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="MVVM\Views\SearchView.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\SetApiKeyView.xaml">

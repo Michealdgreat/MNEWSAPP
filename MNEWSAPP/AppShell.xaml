@@ -9,20 +9,49 @@
     Title="MNEWSAPP"
     Shell.FlyoutBehavior="Disabled"
     Shell.TabBarBackgroundColor="White"
+    Shell.TabBarForegroundColor="Black"
     Shell.TabBarTitleColor="Black"
-    Shell.TabBarUnselectedColor="{StaticResource Gray500}"
-    Shell.TabBarForegroundColor="Black">
+    Shell.TabBarUnselectedColor="{StaticResource Gray500}">
 
     <Shell.TitleView>
-        <Grid>
-            <Grid ColumnDefinitions="*">
-                <Label
-                    FontFamily="poppinsblack"
-                    FontSize="Large"
-                    Text="MNEWS"
-                    TextColor="Black"
-                    VerticalOptions="Center" />
-            </Grid>
+        <Grid ColumnDefinitions=".4*,.6*">
+
+            <Label
+                FontFamily="poppinsblack"
+                FontSize="Large"
+                Text="MNEWS"
+                TextColor="Black"
+                VerticalOptions="Center" />
+
+            <HorizontalStackLayout
+                Grid.Column="1"
+                Margin="0,0,20,0"
+                HorizontalOptions="End">
+                <Frame
+                    Margin="0,12,0,12"
+                    Padding="5"
+                    BackgroundColor="{StaticResource Gray900}"
+                    BorderColor="Black"
+                    CornerRadius="10"
+                    HasShadow="False"
+                    WidthRequest="150">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SearchBarTapped" />
+                    </Frame.GestureRecognizers>
+                    <Label
+                        Margin="10,0,0,0"
+                        FontFamily="mnewsmedium"
+                        FontSize="Caption"
+                        Text="Search MNews"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+                </Frame>
+                <Image HeightRequest="40" Source="searchsvg.svg">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SearchBarTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
         </Grid>
     </Shell.TitleView>
 

@@ -15,6 +15,8 @@ namespace MNEWSAPP
             Routing.RegisterRoute(nameof(ArticleDetailsView), typeof(ArticleDetailsView));
             Routing.RegisterRoute(nameof(WebPageView), typeof(WebPageView));
             Routing.RegisterRoute(nameof(CategoryView), typeof(CategoryView));
+            Routing.RegisterRoute(nameof(SearchView), typeof(SearchView));
+
 
             this.CustomShellMaui(new CustomShellMaui.Models.Transitions
             {
@@ -34,6 +36,11 @@ namespace MNEWSAPP
                     NextPage = TransitionType.LeftIn
                 }
             });
+        }
+
+        private async void SearchBarTapped(object sender, TappedEventArgs e)
+        {
+            await Shell.Current.GoToAsync($"{nameof(SearchView)}");
         }
     }
 }

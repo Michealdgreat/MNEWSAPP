@@ -44,7 +44,7 @@ namespace MNEWSAPP.Service
                     var articles = new List<ArticleModel>();
                     if (filteredData?.Articles != null)
                     {
-                        foreach (var article in filteredData.Articles.Take(6))
+                        foreach (var article in filteredData.Articles.Take(7))
                         {
                             article.UrlToImage = await ImageCache.GetImageFromCacheAsync(article.UrlToImage);
                             articles.Add(article);
