@@ -2,6 +2,7 @@
 using MNEWSAPP.MVVM.Models;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
+using MNEWSAPP.MVVM.Views;
 
 namespace MNEWSAPP.Service
 {
@@ -9,9 +10,10 @@ namespace MNEWSAPP.Service
     {
         private readonly HttpClient _httpClient;
         private readonly string _baseUrl = "https://newsapi.org/v2/everything?q=";
-
+        private readonly SetApiKeyView _apiKeyView;
         public GetNews()
         {
+            _apiKeyView = new(new ApiKeyService());
             _httpClient = new HttpClient();
         }
 
@@ -22,7 +24,7 @@ namespace MNEWSAPP.Service
 
             if (string.IsNullOrEmpty(apiKey))
             {
-                throw new InvalidOperationException("API key is not set in the configuration.");
+                _apiKeyView.CheckApiKey();
             }
 
             string url = $"{_baseUrl}{keyword}&apiKey={apiKey}";
