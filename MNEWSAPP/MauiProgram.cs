@@ -1,13 +1,11 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
 using MNEWSAPP.MVVM.ViewModels;
 using MNEWSAPP.Service;
-using System.Reflection;
 using MNEWSAPP.MVVM.Views;
-using PanCardView;
 using Xe.AcrylicView;
 using CustomShellMaui;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace MNEWSAPP
 {
@@ -16,19 +14,14 @@ namespace MNEWSAPP
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
-            // Load the configuration
-            //var configuration = new ConfigurationBuilder()
-            //    .SetBasePath(AppContext.BaseDirectory)
-            //    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-            //    .Build();
 
-            //builder.Configuration.AddConfiguration(configuration);
 
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
                 .UseAcrylicView()
                 .UseCustomShellMaui()
+                .UseSkiaSharp()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

@@ -107,6 +107,7 @@
 		<None Remove="Resources\Images\google.jpg" />
 		<None Remove="Resources\Images\houseinvillage.jpeg" />
 		<None Remove="Resources\Images\Microsoft.jpg" />
+		<None Remove="Resources\Images\mnewsloading.gif" />
 		<None Remove="Resources\Images\newsicon.jpg" />
 		<None Remove="Resources\Images\pexel1.jpeg" />
 		<None Remove="Resources\Images\pexel2.jpeg" />
@@ -118,6 +119,8 @@
 		<None Remove="Resources\Images\whitehouse.jpeg" />
 		<None Remove="Resources\Images\windows.jpg" />
 		<None Remove="Resources\Images\xlogo.jpg" />
+		<None Remove="Resources\Raw\animation2.json" />
+		<None Remove="Resources\Raw\barsloadinganimation.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -135,6 +138,7 @@
 		<PackageReference Include="Microsoft.Maui.Resizetizer" Version="8.0.60" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="SimpleToolkit.SimpleShell" Version="4.1.3" />
+		<PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
