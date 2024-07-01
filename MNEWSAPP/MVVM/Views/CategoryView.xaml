@@ -8,6 +8,7 @@
 
     <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
         <VerticalStackLayout>
+
             <VerticalStackLayout BindableLayout.ItemsSource="{Binding TakeOne}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
@@ -18,6 +19,7 @@
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </VerticalStackLayout>
+
 
             <VerticalStackLayout BindableLayout.ItemsSource="{Binding ArticleModel}">
                 <BindableLayout.ItemTemplate>
@@ -44,10 +46,8 @@
                                 Margin="0,10,0,10"
                                 Aspect="AspectFit"
                                 HorizontalOptions="End"
-                                Source="boltsvg"
+                                Source="{Binding UrlToImage}"
                                 VerticalOptions="Center" />
-
-
 
                             <BoxView
                                 Grid.Row="1"
@@ -56,15 +56,9 @@
                                 HeightRequest="1"
                                 Color="LightGrey" />
                         </Grid>
-
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </VerticalStackLayout>
         </VerticalStackLayout>
-
-
-
-
     </ScrollView>
-
 </ContentPage>
