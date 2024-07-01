@@ -6,7 +6,7 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="ExploreView">
     <ContentPage.Behaviors>
-        <toolkit:StatusBarBehavior StatusBarColor="White" StatusBarStyle="LightContent" />
+        <toolkit:StatusBarBehavior StatusBarColor="Black" StatusBarStyle="LightContent" />
     </ContentPage.Behaviors>
     <ScrollView Padding="30">
         <VerticalStackLayout>

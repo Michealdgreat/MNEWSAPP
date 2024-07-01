@@ -31,6 +31,7 @@ namespace MNEWSAPP
                     fonts.AddFont("POPPINS-BOLD.TTF", "poppinsbold");
                     fonts.AddFont("POPPINS-BLACK.TTF", "poppinsblack");
                     fonts.AddFont("POPPINS-SEMIBOLD.TTF", "poppinssemibold");
+                    fonts.AddFont("fontello.ttf", "mnewsIcons");
 
 
 
@@ -41,11 +42,12 @@ namespace MNEWSAPP
             builder.Services.AddTransient<HomeViewModel>();
             builder.Services.AddSingleton<GetNews>();
             builder.Services.AddTransient<ApiKeyService>();
-            builder.Services.AddTransient<IndexPage>();
-            builder.Services.AddTransient<IndexPage>();
+            builder.Services.AddSingleton<IndexPage>();
             builder.Services.AddSingleton<SetApiKeyView>();
-            builder.Services.AddTransient<ExploreView>();
+            builder.Services.AddSingleton<ExploreView>();
             builder.Services.AddTransient<SearchView>();
+            builder.Services.AddSingleton<SettingsView>();
+            builder.Services.AddSingleton<ChangeFontSizeView>();
 
 #if DEBUG
             builder.Logging.AddDebug();

@@ -16,6 +16,8 @@ namespace MNEWSAPP
             Routing.RegisterRoute(nameof(WebPageView), typeof(WebPageView));
             Routing.RegisterRoute(nameof(CategoryView), typeof(CategoryView));
             Routing.RegisterRoute(nameof(SearchView), typeof(SearchView));
+            Routing.RegisterRoute(nameof(SetApiKeyView), typeof(SetApiKeyView));
+            Routing.RegisterRoute(nameof(ChangeFontSizeView), typeof(ChangeFontSizeView));
 
 
             this.CustomShellMaui(new CustomShellMaui.Models.Transitions
@@ -27,8 +29,8 @@ namespace MNEWSAPP
                 },
                 Push = new CustomShellMaui.Models.Transition
                 {
-                    CurrentPage = TransitionType.TopOut,
-                    NextPage = TransitionType.BottomIn
+                    CurrentPage = TransitionType.LeftOut,
+                    NextPage = TransitionType.RightIn
                 },
                 Pop = new CustomShellMaui.Models.Transition
                 {

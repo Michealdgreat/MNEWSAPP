@@ -53,6 +53,7 @@
 		<MauiImage Update="Resources\Images\boltsvg.svg" Resize="True" BaseSize="300,185" />
 		<MauiImage Update="Resources\Images\homesvg.svg" Resize="True" BaseSize="300,185" />
 		<MauiImage Update="Resources\Images\searchsvg.svg" Resize="True" BaseSize="300,185" />
+		<MauiImage Update="Resources\Images\key.svg" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -62,6 +63,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Remove="Resources\Fonts\fontello.ttf" />
+		<None Remove="Resources\Fonts\fonticons.ttf" />
 		<None Remove="Resources\Fonts\mnewsfontfamily.ttf" />
 		<None Remove="Resources\Fonts\MONTSERRAT-BLACK.TTF" />
 		<None Remove="Resources\Fonts\MONTSERRAT-BLACKITALIC.TTF" />
@@ -103,8 +106,10 @@
 		<None Remove="Resources\Fonts\source-serif-pro.semibold.ttf" />
 		<None Remove="Resources\Images\amazon.jpg" />
 		<None Remove="Resources\Images\apple.jpg" />
+		<None Remove="Resources\Images\arrowright.svg" />
 		<None Remove="Resources\Images\boltsvg.svg" />
 		<None Remove="Resources\Images\canoe.jpeg" />
+		<None Remove="Resources\Images\changetextsize.svg" />
 		<None Remove="Resources\Images\chatgpt.jpg" />
 		<None Remove="Resources\Images\facebook.jpg" />
 		<None Remove="Resources\Images\football.jpeg" />
@@ -112,6 +117,7 @@
 		<None Remove="Resources\Images\google.jpg" />
 		<None Remove="Resources\Images\homesvg.svg" />
 		<None Remove="Resources\Images\houseinvillage.jpeg" />
+		<None Remove="Resources\Images\key.svg" />
 		<None Remove="Resources\Images\Microsoft.jpg" />
 		<None Remove="Resources\Images\mnewsloading.gif" />
 		<None Remove="Resources\Images\newsicon.jpg" />
@@ -123,6 +129,8 @@
 		<None Remove="Resources\Images\searchsvg.svg" />
 		<None Remove="Resources\Images\settingssvg.svg" />
 		<None Remove="Resources\Images\stackoverflow.jpg" />
+		<None Remove="Resources\Images\switchdark.svg" />
+		<None Remove="Resources\Images\switchlight.svg" />
 		<None Remove="Resources\Images\tropical.jpg" />
 		<None Remove="Resources\Images\whitehouse.jpeg" />
 		<None Remove="Resources\Images\windows.jpg" />
@@ -156,6 +164,9 @@
 		<MauiXaml Update="MVVM\Views\CategoryView.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="MVVM\Views\ChangeFontSizeView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\ExploreView.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
@@ -169,6 +180,9 @@
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\SetApiKeyView.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="MVVM\Views\SettingsView.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\WebPageView.xaml">

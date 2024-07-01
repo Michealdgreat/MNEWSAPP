@@ -70,9 +70,11 @@
             Route="ExploreView" />
         <ShellContent
             Title="Settings"
-            ContentTemplate="{DataTemplate local:SetApiKeyView}"
+            ContentTemplate="{DataTemplate local:SettingsView}"
             Icon="settingssvg"
-            Route="SetApiKeyView" />
+            Route="SettingsView" />
+
+        
     </TabBar>
     <!--#endregion-->
 
