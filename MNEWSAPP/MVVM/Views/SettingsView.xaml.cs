@@ -16,4 +16,13 @@ public partial class SettingsView : ContentPage
     {
         await Shell.Current.GoToAsync($"{nameof(ChangeFontSizeView)}");
     }
+
+    private async void LinkedInTapped(object sender, TappedEventArgs e)
+    {
+        string? url = "https://www.linkedin.com/in/micheal-shodamola-4400b528b/";
+        
+            var navigationParameter = new Dictionary<string, object> { { "url", url } };
+            await Shell.Current.GoToAsync($"{nameof(WebPageView)}", navigationParameter);
+        
+    }
 }

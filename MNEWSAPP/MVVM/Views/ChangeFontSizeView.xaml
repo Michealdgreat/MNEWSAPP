@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MNEWSAPP.MVVM.Views.ChangeFontSizeView"
-             Title="ChangeFontSizeView">
-    <VerticalStackLayout>
+<ContentPage
+    x:Class="MNEWSAPP.MVVM.Views.ChangeFontSizeView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MNEWSAPP.MVVM.ViewModels"
+    Title="ChangeFontSizeView"
+    Padding="40">
+    <ContentPage.BindingContext>
+        <vm:FontSizeViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label
+            Margin="0,0,0,30"
+            FontSize="{Binding FontSize}"
+            HorizontalOptions="Center"
+            Text="{Binding FontSize, StringFormat='Font Size: {0:F0}'}"
+            TextColor="Black" />
+        <Slider
+            HeightRequest="59"
+            Maximum="30"
+            MaximumTrackColor="Black"
+            Minimum="14"
+            MinimumTrackColor="DarkGray"
+            ThumbColor="Black"
+            Value="{Binding FontSize}" />
 
-        <Stepper />
-
-        <Stepper Minimum="0" Maximum="100" Increment="10" />
-
-        <Button Text="Save" WidthRequest="300" CornerRadius="20" BackgroundColor="Black"/>
+        <Stepper
+            HorizontalOptions="Center"
+            Increment="1"
+            Maximum="30"
+            Minimum="14"
+            Value="{Binding FontSize}" />
+        <Button
+            Margin="0,30,0,0"
+            BackgroundColor="Black"
+            Command="{Binding SaveFontSizeCommand}"
+            CornerRadius="20"
+            Text="Save"
+            WidthRequest="300" />
     </VerticalStackLayout>
 </ContentPage>

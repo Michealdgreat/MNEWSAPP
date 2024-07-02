@@ -169,14 +169,20 @@
             </Image>
 
             <Image>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LinkedInTapped"/>
+                </Image.GestureRecognizers>
                 <Image.Source>
                     <FontImageSource
                         FontFamily="mnewsIcons"
                         Glyph="&#xF304;"
                         Size="50"
-                        Color="Black" />
+                        Color="Black" >
+                    </FontImageSource>
                 </Image.Source>
             </Image>
+
+          
 
         </HorizontalStackLayout>
         <VerticalStackLayout />
