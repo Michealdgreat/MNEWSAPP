@@ -159,6 +159,9 @@
             HorizontalOptions="Center"
             Spacing="10">
             <Image>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LinkedInTapped"/>
+                </Image.GestureRecognizers>
                 <Image.Source>
                     <FontImageSource
                         FontFamily="mnewsIcons"
