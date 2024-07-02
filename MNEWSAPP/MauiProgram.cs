@@ -5,6 +5,7 @@ using MNEWSAPP.Service;
 using MNEWSAPP.MVVM.Views;
 using Xe.AcrylicView;
 using CustomShellMaui;
+using MNEWSAPP.MVVM.Messages;
 
 namespace MNEWSAPP
 {
@@ -47,6 +48,9 @@ namespace MNEWSAPP
             builder.Services.AddSingleton<ExploreView>();
             builder.Services.AddTransient<SearchView>();
             builder.Services.AddSingleton<SettingsView>();
+            builder.Services.AddSingleton<FontSizeViewModel>();
+            builder.Services.AddSingleton<FontSizeChangedMessage>();
+            builder.Services.AddSingleton<ArticleDetailsViewModel>();
             builder.Services.AddSingleton<ChangeFontSizeView>();
 
 #if DEBUG
