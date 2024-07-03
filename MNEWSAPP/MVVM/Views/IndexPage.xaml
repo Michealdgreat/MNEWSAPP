@@ -6,9 +6,11 @@
     xmlns:local="clr-namespace:MNEWSAPP.MVVM.Views"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:ui="clr-namespace:Xe.AcrylicView;assembly=Xe.AcrylicView"
+    xmlns:vm="clr-namespace:MNEWSAPP.MVVM.ViewModels"
     Title="MNews">
+
     <ContentPage.Behaviors>
-        <toolkit:StatusBarBehavior StatusBarColor="Black" StatusBarStyle="LightContent"/>
+        <toolkit:StatusBarBehavior StatusBarColor="Black" StatusBarStyle="LightContent" />
     </ContentPage.Behaviors>
     <ScrollView Margin="4" VerticalScrollBarVisibility="Never">
         <VerticalStackLayout>
@@ -85,7 +87,10 @@
                     FontSize="Medium"
                     Text="Browse By" />
 
-                <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Margin="20,0,20,0">
+                <ScrollView
+                    Margin="20,0,20,0"
+                    HorizontalScrollBarVisibility="Never"
+                    Orientation="Horizontal">
                     <HorizontalStackLayout>
                         <Frame Style="{StaticResource BrowseBy}">
                             <Image Source="windows" />
@@ -193,7 +198,14 @@
 
             <!--#endregion-->
 
-            <Image x:Name="loadingIndicator" Source="mnewsloading.gif" IsAnimationPlaying="True" HeightRequest="100" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Image
+                x:Name="loadingIndicator"
+                HeightRequest="300"
+                Margin="0,50,0,0"
+                HorizontalOptions="Center"
+                IsAnimationPlaying="True"
+                Source="mnewsloading.gif"
+                VerticalOptions="Center" />
 
         </VerticalStackLayout>
 

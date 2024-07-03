@@ -12,7 +12,7 @@
             FontFamily="mnewsbold"
             FontSize="Body"
             HorizontalOptions="Center"
-            Text="Enter an API Key Below"
+            Text="Paste your newsapi.org API Key Below"
             VerticalOptions="Center" />
         <Entry x:Name="ApiKeyEntry" Placeholder="Paste your news api key here" TextColor="Black" FontSize="16" />
         <Button

@@ -11,13 +11,13 @@ namespace MNEWSAPP
         {
             InitializeComponent();
 
-            //Routing.RegisterRoute(nameof(IndexPage), typeof(IndexPage));
             Routing.RegisterRoute(nameof(ArticleDetailsView), typeof(ArticleDetailsView));
             Routing.RegisterRoute(nameof(WebPageView), typeof(WebPageView));
             Routing.RegisterRoute(nameof(CategoryView), typeof(CategoryView));
             Routing.RegisterRoute(nameof(SearchView), typeof(SearchView));
             Routing.RegisterRoute(nameof(SetApiKeyView), typeof(SetApiKeyView));
             Routing.RegisterRoute(nameof(ChangeFontSizeView), typeof(ChangeFontSizeView));
+            Routing.RegisterRoute(nameof(ConnectionErrorView), typeof(ConnectionErrorView));
 
 
             this.CustomShellMaui(new CustomShellMaui.Models.Transitions

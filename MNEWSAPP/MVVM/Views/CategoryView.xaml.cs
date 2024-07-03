@@ -19,20 +19,16 @@ namespace MNEWSAPP.MVVM.Views
                 {
                     article = value;
                     OnPropertyChanged();
-                 
+
                 }
             }
         }
-
-      
 
         public CategoryView()
         {
             InitializeComponent();
             BindingContext = this;
         }
-
-        
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {

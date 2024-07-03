@@ -35,18 +35,16 @@ namespace MNEWSAPP
                     fonts.AddFont("fontello.ttf", "mnewsIcons");
 
 
-
-
                 });
 
-
-            builder.Services.AddTransient<HomeViewModel>();
+            //DI
+            builder.Services.AddSingleton<HomeViewModel>();
             builder.Services.AddSingleton<GetNews>();
-            builder.Services.AddTransient<ApiKeyService>();
+            builder.Services.AddSingleton<ApiKeyService>();
             builder.Services.AddSingleton<IndexPage>();
             builder.Services.AddSingleton<SetApiKeyView>();
             builder.Services.AddSingleton<ExploreView>();
-            builder.Services.AddTransient<SearchView>();
+            builder.Services.AddSingleton<SearchView>();
             builder.Services.AddSingleton<SettingsView>();
             builder.Services.AddSingleton<FontSizeViewModel>();
             builder.Services.AddSingleton<FontSizeChangedMessage>();

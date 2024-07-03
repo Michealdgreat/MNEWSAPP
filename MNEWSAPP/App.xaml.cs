@@ -7,17 +7,10 @@ namespace MNEWSAPP
 {
     public partial class App : Application
     {
-        public App(IServiceProvider serviceProvider)
+        public App()
         {
             InitializeComponent();
-
-            // Resolve HomeView from the service provider
-            //var homeView = serviceProvider.GetRequiredService<HomeView>();
-            //MainPage = new NavigationPage(homeView);
-
             MainPage = new AppShell();
-            //MainPage = new HomePageView();
-
         }
     }
 }

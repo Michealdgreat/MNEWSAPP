@@ -167,6 +167,9 @@
 		<MauiXaml Update="MVVM\Views\ChangeFontSizeView.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="MVVM\Views\ConnectionErrorView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="MVVM\Views\ExploreView.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>

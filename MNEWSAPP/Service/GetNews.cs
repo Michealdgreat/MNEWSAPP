@@ -1,7 +1,9 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Net.Http;
+using CommunityToolkit.Mvvm.ComponentModel;
 using MNEWSAPP.MVVM.Models;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using MNEWSAPP.MVVM.Views;
 
 namespace MNEWSAPP.Service
@@ -11,52 +13,84 @@ namespace MNEWSAPP.Service
         private readonly HttpClient _httpClient;
         private readonly string _baseUrl = "https://newsapi.org/v2/everything?q=";
         private readonly SetApiKeyView _apiKeyView;
+
         public GetNews()
         {
-            _apiKeyView = new(new ApiKeyService());
+            _apiKeyView = new SetApiKeyView(new ApiKeyService());
             _httpClient = new HttpClient();
+            //SecureStorage.Remove("apiKey");
+
         }
+
 
         public async Task<ObservableCollection<ArticleModel>?> GetNewsAsync(string keyword)
         {
             var apiKey = await SecureStorage.GetAsync("apiKey");
-
-
             if (string.IsNullOrEmpty(apiKey))
             {
-                _apiKeyView.CheckApiKey();
+                await Shell.Current.GoToAsync($"{nameof(SetApiKeyView)}");
             }
 
             string url = $"{_baseUrl}{keyword}&apiKey={apiKey}";
             _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("MN News/1.0");
 
-            var response = await _httpClient.GetAsync(url);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var responseString = await response.Content.ReadAsStringAsync();
-                var data = JsonConvert.DeserializeObject<ResponseModel>(responseString);
+                var response = await _httpClient.GetAsync(url);
 
-                var filteredArticles = data?.Articles?.Where(article => !string.IsNullOrEmpty(article.UrlToImage)).ToList();
-                var filteredData = new ResponseModel { Articles = filteredArticles };
-
-                var processedArticles = await Task.Run(async () =>
+                if (response.IsSuccessStatusCode)
                 {
-                    var articles = new List<ArticleModel>();
-                    if (filteredData?.Articles != null)
+                    var responseString = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<ResponseModel>(responseString);
+
+                    var filteredArticles = data?.Articles?.Where(article => !string.IsNullOrEmpty(article.UrlToImage)).ToList();
+                    var filteredData = new ResponseModel { Articles = filteredArticles };
+
+                    var processedArticles = await Task.Run(async () =>
                     {
-                        foreach (var article in filteredData.Articles.Take(7))
+                        var articles = new List<ArticleModel>();
+                        if (filteredData?.Articles != null)
                         {
-                            article.UrlToImage = await ImageCache.GetImageFromCacheAsync(article.UrlToImage);
-                            articles.Add(article);
+                            foreach (var article in filteredData.Articles.Take(7))
+                            {
+                                article.UrlToImage = await ImageCache.GetImageFromCacheAsync(article.UrlToImage);
+                                articles.Add(article);
+                            }
                         }
-                    }
-                    return articles;
-                });
+                        return articles;
+                    });
 
-                return new ObservableCollection<ArticleModel>(processedArticles);
+                    return new ObservableCollection<ArticleModel>(processedArticles);
+                }
+                else
+                {
+
+                    await HandleApiError(response);
+                    return null;
+                }
             }
+            catch (Exception ex)
+            {
 
-            return new ObservableCollection<ArticleModel>();
+                var message = ex.Message;
+                var navigationParameters = new Dictionary<string, object>
+                {
+                    {"errorMessage", message }
+                };
+                await Shell.Current.GoToAsync($"{nameof(ConnectionErrorView)}", navigationParameters);
+                return null;
+            }
+        }
+
+        private async Task HandleApiError(HttpResponseMessage response)
+        {
+            var errorMessage = await response.Content.ReadAsStringAsync();
+
+            var navigationParameters = new Dictionary<string, object>
+                {
+                    {"errorMessage", errorMessage }
+                };
+            await Shell.Current.GoToAsync($"{nameof(ConnectionErrorView)}", navigationParameters);
         }
 
         private async Task SetApiKeyAsync(string apiKeyValue)

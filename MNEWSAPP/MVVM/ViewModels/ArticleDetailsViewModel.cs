@@ -23,7 +23,6 @@ namespace MNEWSAPP.MVVM.ViewModels
 
         public ArticleDetailsViewModel()
         {
-            //register to receive message from sender.
             WeakReferenceMessenger.Default.Register<FontSizeChangedMessage>(this, (r, m) =>
             {
                 FontSize = m.Value;
