@@ -8,8 +8,7 @@
     xmlns:ui="clr-namespace:Xe.AcrylicView;assembly=Xe.AcrylicView"
     xmlns:vm="clr-namespace:MNEWSAPP.MVVM.ViewModels"
     Title="MNews"
-    BackgroundColor="{AppThemeBinding Dark='Black',
-                                      Light='white'}">
+    BackgroundColor="{AppThemeBinding Dark='Black', Light='white'}">
 
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="Black" StatusBarStyle="LightContent" />
@@ -33,7 +32,7 @@
                                     FontSize="Body"
                                     Text="{Binding Title}"
                                     TextColor="{AppThemeBinding Dark='Black',
-                                                                Light='White'}">
+                                                                Light='Black'}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="FraturedSectionTapped" />
                                     </Label.GestureRecognizers>

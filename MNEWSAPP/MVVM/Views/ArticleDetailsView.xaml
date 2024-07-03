@@ -14,7 +14,7 @@
                 Padding="20"
                 FontAttributes="Bold"
                 FontFamily="mnewsbold"
-                FontSize="{Binding FontSize}"
+                FontSize="25"
                 HorizontalOptions="CenterAndExpand"
                 Text="{Binding Article.Title}" />
 

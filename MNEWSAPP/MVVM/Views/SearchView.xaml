@@ -13,9 +13,9 @@
             ClearButtonVisibility="WhileEditing"
             
             Placeholder="Search MNews Articles"
-            PlaceholderColor="Black" />
+            PlaceholderColor="{AppThemeBinding Dark='White', Light='Black'}" />
         <Button
-            BackgroundColor="Black"
+            BackgroundColor="{AppThemeBinding Dark='White', Light='Black'}"
             FontFamily="mnewsbold"
             FontSize="Body"
             Clicked="SearchButtonClicked"

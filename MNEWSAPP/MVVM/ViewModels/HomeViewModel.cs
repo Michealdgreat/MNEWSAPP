@@ -12,7 +12,7 @@ namespace MNEWSAPP.MVVM.ViewModels
     public partial class HomeViewModel : ObservableObject
     {
         private readonly HttpClient _httpClient;
-        private readonly string _baseUrl = "https://newsapi.org/v2/top-headlines?country=us&apiKey=";
+        private readonly string _baseUrl = "https://newsapi.org/v2/everything?q=finland&apiKey=";
         private readonly GetNews _getNewsService;
 
         [ObservableProperty]
