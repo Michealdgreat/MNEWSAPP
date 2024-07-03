@@ -4,13 +4,13 @@ MNewsApp is a mobile application built with .NET MAUI that provides users with t
 
 ## Features
 
-- Fetches news articles from the News API
+- Fetches news articles from the Newsapi.org
 - Displays articles with images, titles, authors, and publication dates
 - Allows users to read full articles by navigating to a web view
 - Handles API key management and prompts users to set an API key if not provided
 - Manages connection errors and displays appropriate error messages
-- Implements MVVM architecture using CommunityToolkit.Mvvm
-- Supports font size adjustments in the article details view
+- Implements MVVM architecture
+- Supports font size adjustments
 
 ## Screenshots
 
