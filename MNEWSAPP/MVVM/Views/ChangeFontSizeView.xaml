@@ -15,14 +15,14 @@
             FontSize="{Binding FontSize}"
             HorizontalOptions="Center"
             Text="{Binding FontSize, StringFormat='Font Size: {0:F0}'}"
-            TextColor="Black" />
+            TextColor="{AppThemeBinding Dark='White', Light='Black'}" />
         <Slider
             HeightRequest="59"
             Maximum="30"
-            MaximumTrackColor="Black"
+            MaximumTrackColor="{AppThemeBinding Dark='White', Light='Black'}"
             Minimum="14"
             MinimumTrackColor="DarkGray"
-            ThumbColor="Black"
+            ThumbColor="{AppThemeBinding Dark='White', Light='Black'}"
             Value="{Binding FontSize}" />
 
         <Stepper
@@ -33,7 +33,7 @@
             Value="{Binding FontSize}" />
         <Button
             Margin="0,30,0,0"
-            BackgroundColor="Black"
+            BackgroundColor="{AppThemeBinding Dark='White', Light='Black'}"
             Command="{Binding SaveFontSizeCommand}"
             CornerRadius="20"
             Text="Save"

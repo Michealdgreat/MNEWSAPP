@@ -7,7 +7,9 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:ui="clr-namespace:Xe.AcrylicView;assembly=Xe.AcrylicView"
     xmlns:vm="clr-namespace:MNEWSAPP.MVVM.ViewModels"
-    Title="MNews">
+    Title="MNews"
+    BackgroundColor="{AppThemeBinding Dark='Black',
+                                      Light='white'}">
 
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="Black" StatusBarStyle="LightContent" />
@@ -29,7 +31,9 @@
                                     FontAttributes="Bold"
                                     FontFamily="mnewsbold"
                                     FontSize="Body"
-                                    Text="{Binding Title}">
+                                    Text="{Binding Title}"
+                                    TextColor="{AppThemeBinding Dark='Black',
+                                                                Light='White'}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="FraturedSectionTapped" />
                                     </Label.GestureRecognizers>
@@ -85,7 +89,9 @@
                     Margin="20"
                     FontFamily="mnewsbold"
                     FontSize="Medium"
-                    Text="Browse By" />
+                    Text="Browse By"
+                    TextColor="{AppThemeBinding Dark='White',
+                                                Light='Black'}" />
 
                 <ScrollView
                     Margin="20,0,20,0"
@@ -145,12 +151,15 @@
                     Margin="20,25,0,0"
                     FontFamily="mnewsbold"
                     FontSize="Medium"
-                    Text="Recent News" />
+                    Text="Recent News"
+                    TextColor="{AppThemeBinding Dark='White',
+                                                Light='Black'}" />
                 <BoxView
                     Margin="20,5,20,0"
                     HeightRequest="2"
                     VerticalOptions="Start"
-                    Color="LightGray" />
+                    Color="{AppThemeBinding Dark='White',
+                                            Light='LightGray'}" />
             </VerticalStackLayout>
 
 
@@ -174,7 +183,9 @@
                                 FontAttributes="Bold"
                                 FontFamily="poppinssemibold"
                                 FontSize="Small"
-                                Text="{Binding Title}">
+                                Text="{Binding Title}"
+                                TextColor="{AppThemeBinding Dark='White',
+                                                            Light='Black'}">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                 </Label.GestureRecognizers>
@@ -188,7 +199,8 @@
                             <BoxView
                                 HeightRequest="1"
                                 VerticalOptions="End"
-                                Color="LightGray" />
+                                Color="{AppThemeBinding Dark='White',
+                                                        Light='LightGray'}" />
                         </Grid>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
@@ -200,8 +212,8 @@
 
             <Image
                 x:Name="loadingIndicator"
-                HeightRequest="300"
                 Margin="0,50,0,0"
+                HeightRequest="300"
                 HorizontalOptions="Center"
                 IsAnimationPlaying="True"
                 Source="mnewsloading.gif"

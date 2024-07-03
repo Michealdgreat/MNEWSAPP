@@ -8,9 +8,12 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="MNEWSAPP"
     Shell.FlyoutBehavior="Disabled"
-    Shell.TabBarBackgroundColor="White"
-    Shell.TabBarForegroundColor="Black"
-    Shell.TabBarTitleColor="Black"
+    Shell.TabBarBackgroundColor="{AppThemeBinding Dark='Black',
+                                                  Light='White'}"
+    Shell.TabBarForegroundColor="{AppThemeBinding Dark='White',
+                                                  Light='Black'}"
+    Shell.TabBarTitleColor="{AppThemeBinding Dark='White',
+                                             Light='Black'}"
     Shell.TabBarUnselectedColor="{StaticResource Gray500}">
 
     <Shell.TitleView>
@@ -20,7 +23,8 @@
                 FontFamily="poppinsblack"
                 FontSize="Large"
                 Text="MNEWS"
-                TextColor="Black"
+                TextColor="{AppThemeBinding Dark='White',
+                                            Light='Black'}"
                 VerticalOptions="Center" />
 
             <HorizontalStackLayout
@@ -74,7 +78,7 @@
             Icon="settingssvg"
             Route="SettingsView" />
 
-        
+
     </TabBar>
     <!--#endregion-->
 

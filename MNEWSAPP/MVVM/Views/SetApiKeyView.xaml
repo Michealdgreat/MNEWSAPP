@@ -17,7 +17,7 @@
         <Entry x:Name="ApiKeyEntry" Placeholder="Paste your news api key here" TextColor="Black" FontSize="16" />
         <Button
             Margin="0,20,0,0"
-            BackgroundColor="Black"
+            BackgroundColor="{AppThemeBinding Dark='White', Light='Black'}"
             CornerRadius="10"
             Text="Continue"
             WidthRequest="200" 

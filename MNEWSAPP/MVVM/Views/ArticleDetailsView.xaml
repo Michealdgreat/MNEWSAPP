@@ -47,7 +47,7 @@
 
             <Button
                 Margin="0,20,0,0"
-                BackgroundColor="Black"
+                BackgroundColor="{AppThemeBinding Dark='White', Light='Black'}"
                 Clicked="Button_Clicked"
                 FontFamily="mnewsbold"
                 FontSize="Body"
