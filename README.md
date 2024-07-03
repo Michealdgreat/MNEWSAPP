@@ -31,10 +31,6 @@ MNewsApp is a Cross-Platform mobile application built with .NET MAUI that provid
 <img src="MNEWSAPP/ReadMe/mnews_screenshot%20(11).png" alt="screenshot" width="200"/>
 <img src="MNEWSAPP/ReadMe/mnews_screenshot%20(2).png" alt="screenshot" width="200"/>
 <img src="MNEWSAPP/ReadMe/mnews_screenshot%20(1).jpg" alt="screenshot" width="200"/>
-<img src="MNEWSAPP/ReadMe/mnews_screenshot%20(4).png" alt="screenshot" width="200"/>
-
-
-
 
 
 ## Architecture
