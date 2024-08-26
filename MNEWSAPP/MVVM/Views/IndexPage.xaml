@@ -13,7 +13,7 @@
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="Black" StatusBarStyle="LightContent" />
     </ContentPage.Behaviors>
-    <ScrollView Margin="4" VerticalScrollBarVisibility="Never">
+    <RefreshView Margin="4">
         <VerticalStackLayout>
 
             <!--#region Top Featured Section-->
@@ -222,5 +222,5 @@
 
 
 
-    </ScrollView>
+    </RefreshView>
 </ContentPage>
