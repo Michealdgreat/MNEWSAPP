@@ -13,44 +13,45 @@
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="Black" StatusBarStyle="LightContent" />
     </ContentPage.Behaviors>
-    <RefreshView Margin="4">
-        <VerticalStackLayout>
+    <!--<RefreshView RefreshColor="Azure" BackgroundColor="Black" IsRefreshing="{Binding IsRefreshing}">-->
+        <ScrollView Margin="4" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout>
 
-            <!--#region Top Featured Section-->
-            <VerticalStackLayout x:Name="mainPageContent1" BindableLayout.ItemsSource="{Binding TopThreeNews}">
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate>
-                        <Frame
+                <!--#region Top Featured Section-->
+                <VerticalStackLayout x:Name="mainPageContent1" BindableLayout.ItemsSource="{Binding TopThreeNews}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
                             Margin="10"
                             BackgroundColor="#F9F9F9"
                             BorderColor="#F9F9F9"
                             CornerRadius="10">
-                            <StackLayout Orientation="Vertical" Spacing="5">
-                                <Label
+                                <StackLayout Orientation="Vertical" Spacing="5">
+                                    <Label
                                     FontAttributes="Bold"
                                     FontFamily="mnewsbold"
                                     FontSize="Body"
                                     Text="{Binding Title}"
                                     TextColor="{AppThemeBinding Dark='Black',
                                                                 Light='Black'}">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="FraturedSectionTapped" />
-                                    </Label.GestureRecognizers>
-                                </Label>
-                                <HorizontalStackLayout>
-                                    <Label
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="FraturedSectionTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <HorizontalStackLayout>
+                                        <Label
                                         FontSize="Small"
                                         Text="{Binding Author}"
                                         TextColor="Black" />
-                                    <Label Text="    " />
-                                    <!--<Label Text="{Binding PublishedAt}"/>-->
-                                </HorizontalStackLayout>
-                                <Grid>
-                                    <Frame Padding="0" HeightRequest="250">
-                                        <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
-                                    </Frame>
+                                        <Label Text="    " />
+                                        <!--<Label Text="{Binding PublishedAt}"/>-->
+                                    </HorizontalStackLayout>
+                                    <Grid>
+                                        <Frame Padding="0" HeightRequest="250">
+                                            <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
+                                        </Frame>
 
-                                    <ui:AcrylicView
+                                        <ui:AcrylicView
                                         BorderColor="Black"
                                         BorderThickness="0"
                                         CornerRadius="0,0,10,10"
@@ -60,7 +61,7 @@
                                         TintColor="Black"
                                         TintOpacity=".02"
                                         VerticalOptions="End" />
-                                    <Label
+                                        <Label
                                         Margin="10"
                                         FontAttributes="Italic"
                                         FontFamily="poppinssemibold"
@@ -70,21 +71,21 @@
                                         Text="{Binding Content}"
                                         TextColor="White"
                                         VerticalOptions="End" />
-                                </Grid>
-                            </StackLayout>
+                                    </Grid>
+                                </StackLayout>
 
-                        </Frame>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
 
 
-            </VerticalStackLayout>
+                </VerticalStackLayout>
 
-            <!--#endregion-->
+                <!--#endregion-->
 
-            <!--#region BrowseBy Section-->
-            <VerticalStackLayout x:Name="mainPageContent2">
-                <Label
+                <!--#region BrowseBy Section-->
+                <VerticalStackLayout x:Name="mainPageContent2">
+                    <Label
                     Margin="20"
                     FontFamily="mnewsbold"
                     FontSize="Medium"
@@ -92,81 +93,81 @@
                     TextColor="{AppThemeBinding Dark='White',
                                                 Light='Black'}" />
 
-                <ScrollView
+                    <ScrollView
                     Margin="20,0,20,0"
                     HorizontalScrollBarVisibility="Never"
                     Orientation="Horizontal">
-                    <HorizontalStackLayout>
-                        <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="windows" />
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="WindowsTapped" />
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                        <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="Apple" />
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="AppleTapped" />
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                        <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="google" />
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="GoogleTapped" />
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                        <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="facebook" />
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="FacebokTapped" />
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                        <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="xlogo" />
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="xLogoTapped" />
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                        <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="amazon" />
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="AmazonTapped" />
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                        <Frame Style="{StaticResource BrowseBy}">
-                            <Image Source="github" />
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="GithubTapped" />
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                    </HorizontalStackLayout>
-                </ScrollView>
-            </VerticalStackLayout>
-            <!--#endregion-->
+                        <HorizontalStackLayout>
+                            <Frame Style="{StaticResource BrowseBy}">
+                                <Image Source="windows" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="WindowsTapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                            <Frame Style="{StaticResource BrowseBy}">
+                                <Image Source="Apple" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="AppleTapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                            <Frame Style="{StaticResource BrowseBy}">
+                                <Image Source="google" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GoogleTapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                            <Frame Style="{StaticResource BrowseBy}">
+                                <Image Source="facebook" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="FacebokTapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                            <Frame Style="{StaticResource BrowseBy}">
+                                <Image Source="xlogo" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="xLogoTapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                            <Frame Style="{StaticResource BrowseBy}">
+                                <Image Source="amazon" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="AmazonTapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                            <Frame Style="{StaticResource BrowseBy}">
+                                <Image Source="github" />
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GithubTapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </HorizontalStackLayout>
+                    </ScrollView>
+                </VerticalStackLayout>
+                <!--#endregion-->
 
-            <!--#region Browese By Section-->
-            <VerticalStackLayout x:Name="mainPageContent3">
-                <Label
+                <!--#region Browese By Section-->
+                <VerticalStackLayout x:Name="mainPageContent3">
+                    <Label
                     Margin="20,25,0,0"
                     FontFamily="mnewsbold"
                     FontSize="Medium"
                     Text="Recent News"
                     TextColor="{AppThemeBinding Dark='White',
                                                 Light='Black'}" />
-                <BoxView
+                    <BoxView
                     Margin="20,5,20,0"
                     HeightRequest="2"
                     VerticalOptions="Start"
                     Color="{AppThemeBinding Dark='White',
                                             Light='LightGray'}" />
-            </VerticalStackLayout>
+                </VerticalStackLayout>
 
 
-            <!--#endregion-->
+                <!--#endregion-->
 
-            <!--#region News Tabbed Section-->
+                <!--#region News Tabbed Section-->
 
-            <VerticalStackLayout
+                <VerticalStackLayout
                 x:Name="BrowseBy"
                 Margin="0,-10,0,0"
                 Padding="25"
@@ -174,10 +175,10 @@
                 IsVisible="True"
                 Spacing="12">
 
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate>
-                        <Grid ColumnDefinitions=".8*,.2*" RowDefinitions="1*">
-                            <Label
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions=".8*,.2*" RowDefinitions="1*">
+                                <Label
                                 Margin="9,0,5,0"
                                 FontAttributes="Bold"
                                 FontFamily="poppinssemibold"
@@ -185,31 +186,29 @@
                                 Text="{Binding Title}"
                                 TextColor="{AppThemeBinding Dark='White',
                                                             Light='Black'}">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </Label.GestureRecognizers>
-                            </Label>
-                            <Frame
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <Frame
                                 Grid.Column="1"
                                 Padding="0"
                                 CornerRadius="7">
-                                <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
-                            </Frame>
-                            <BoxView
+                                    <Image Aspect="AspectFill" Source="{Binding UrlToImage}" />
+                                </Frame>
+                                <BoxView
                                 HeightRequest="1"
                                 VerticalOptions="End"
                                 Color="{AppThemeBinding Dark='White',
                                                         Light='LightGray'}" />
-                        </Grid>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
-            </VerticalStackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
 
+                <!--#endregion-->
 
-
-            <!--#endregion-->
-
-            <Image
+                <Image
                 x:Name="loadingIndicator"
                 Margin="0,50,0,0"
                 HeightRequest="300"
@@ -218,9 +217,10 @@
                 Source="mnewsloading.gif"
                 VerticalOptions="Center" />
 
-        </VerticalStackLayout>
+            </VerticalStackLayout>
 
 
 
-    </RefreshView>
+        </ScrollView>
+    <!--</RefreshView>-->
 </ContentPage>
